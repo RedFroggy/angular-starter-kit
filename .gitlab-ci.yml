@@ -1,0 +1,21 @@
+stages:
+  - update-dependencies
+
+variables:
+  PROJECT_VERSION: '1.0'
+
+cache:
+  paths:
+    - node_modules
+
+default:
+  image: node:latest
+
+update-dependencies:
+  only:
+    - schedules
+  stage: update-dependencies
+  before_script:
+    - npm ci
+  script:
+    - npm run update-dependencies
