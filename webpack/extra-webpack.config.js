@@ -11,7 +11,8 @@ const plugins = [
   new MergeJsonWebpackPlugin({ // Find and merge json files for each language
     output: {
       groupBy: [
-        {pattern: "./src/**/en/**/*.json", fileName: "i18n/en.json"}
+        {pattern: "./src/**/en/**/*.json", fileName: "i18n/en.json"},
+        {pattern: "./src/**/fr/**/*.json", fileName: "i18n/fr.json"}
       ]
     }
   }),
