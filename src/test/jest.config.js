@@ -8,7 +8,7 @@ module.exports = {
     "^.+\\.(ts|js|html)$": "ts-jest"
   },
   "setupFilesAfterEnv": [
-    "<rootDir>/src/setup-jest.ts"
+    "<rootDir>/src/test/setup-jest.ts"
   ],
   "moduleNameMapper": {
     "@app/(.*)": "<rootDir>/src/app/$1",
@@ -27,5 +27,6 @@ module.exports = {
         "jest-preset-angular/build/StripStylesTransformer"
       ]
     }
-  }
+  },
+  "rootDir": '../../'
 };
