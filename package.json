@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod --configuration=production",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "test": "jest --logHeapUsage -w=6 --testPathIgnorePatterns .spec.js --config ./src/test/jest.config.js",
