@@ -1,6 +1,8 @@
 stages:
   - update-dependencies
   - test-and-qa
+  - build
+  - release
 
 variables:
   PROJECT_VERSION: '1.0'
@@ -28,6 +30,31 @@ test-and-qa:
     - npm ci
     - npm run lint
     - npm run test:ci
+
+build:
+  stage: build
+  except:
+    - schedules
+  cache:
+    policy: pull
+  artifacts:
+    paths:
+      - dist/*
+  only:
+    refs:
+      - master
+  script:
+    - npm run build
+
+release:
+  stage: release
+  except:
+    - schedules
+  only:
+    refs:
+      - master
+  script:
+    - npm run semantic-release
 
 update-dependencies:
   only:
