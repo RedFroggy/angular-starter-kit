@@ -83,6 +83,9 @@
           "configurations": {
             "production": {
               "browserTarget": "angular-cli:build:production"
+            },
+            "dev": {
+              "browserTarget": "angular-cli:build:dev"
             }
           }
         },

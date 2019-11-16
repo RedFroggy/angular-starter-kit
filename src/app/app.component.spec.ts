@@ -1,6 +1,8 @@
 import { AppComponent } from './app.component';
 import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';
 import { RouterTestingModule } from '@angular/router/testing';
+import { SharedModule } from './shared/shared.module';
+import { AppConfigModule } from './app-config.module';
 
 describe('AppComponent', () => {
 
@@ -8,7 +10,7 @@ describe('AppComponent', () => {
   let component: AppComponent;
 
   const createComponent = createComponentFactory({
-    imports: [RouterTestingModule],
+    imports: [SharedModule, RouterTestingModule, AppConfigModule],
     component: AppComponent
   });
 
@@ -26,6 +28,6 @@ describe('AppComponent', () => {
   });
 
   it('should render title in a h1 tag', () => {
-    expect(spectator.query('h1').textContent).toContain('Welcome to angular-cli!');
+    expect(spectator.query('h1').textContent).toContain('app.title');
   });
 });
