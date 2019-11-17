@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslateCacheService } from 'ngx-translate-cache';
 import { environment } from '../environments/environment';
@@ -14,8 +14,7 @@ export class AppComponent {
   title = 'angular-cli';
   locale: string;
 
-  constructor(@Inject(TranslateService) private translateService: TranslateService,
-              @Inject(TranslateCacheService) private translateCacheService: TranslateCacheService) {
+  constructor(private translateService: TranslateService, private translateCacheService: TranslateCacheService) {
 
     this.locale = this.translateCacheService.getCachedLanguage() || environment.defaultLanguage;
     this.translateService.use(environment.defaultLanguage);
