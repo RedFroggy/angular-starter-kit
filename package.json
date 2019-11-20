@@ -8,7 +8,7 @@
     "build": "ng build --prod --configuration=production",
     "lint": "ng lint",
     "e2e:ci": "./node_modules/.bin/cypress run -e TAGS='not @ignore'",
-    "e2e:ci:concurrent": "concurrently --success first --kill-others --no-color --raw \"ng serve --configuration=dev\" \"wait-on http-get://localhost:4200 && ./node_modules/.bin/cypress run -e TAGS='not @ignore'\"",
+    "e2e:ci:concurrent": "concurrently --success first --kill-others --no-color --raw \"ng serve --configuration=dev\" \"wait-on http-get://localhost:9000 && ./node_modules/.bin/cypress run -e TAGS='not @ignore'\"",
     "e2e:open": "./node_modules/.bin/cypress open",
     "e2e:open:concurrent": "concurrently \"ng serve --configuration=dev\" \"./node_modules/.bin/cypress open\"",
     "test": "jest --logHeapUsage -w=6 --testPathIgnorePatterns .spec.js --config ./src/test/jest.config.js",

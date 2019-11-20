@@ -2,7 +2,7 @@
 context('Page should render', () => {
 
   beforeEach(() => {
-    cy.visit('http://localhost:4200');
+    cy.visit('http://localhost:9000');
   });
 
   it('Title should exists', () => {
