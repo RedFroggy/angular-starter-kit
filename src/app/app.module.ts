@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppConfigModule } from './app-config.module';
 import { FormsModule } from '@angular/forms';
+import { SentryErrorHandler } from './shared/handlers/sentry-error.handler';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +15,8 @@ import { FormsModule } from '@angular/forms';
     AppConfigModule,
     AppRoutingModule
   ],
+  providers: [{ provide: ErrorHandler, useClass: SentryErrorHandler }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

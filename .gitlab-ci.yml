@@ -2,6 +2,7 @@ stages:
   - update-dependencies
   - test-and-qa
   - build
+  - sentry
   - release
 
 variables:
@@ -46,6 +47,20 @@ build:
       - master
   script:
     - npm run build
+
+sentry:
+  image: getsentry/sentry-cli
+  stage: sentry
+  except:
+    - schedules
+  only:
+    refs:
+      - master
+  script:
+    - sentry-cli releases new $CI_COMMIT_SHA
+    - sentry-cli releases set-commits --auto $CI_COMMIT_SHA
+    - sentry-cli releases files $CI_COMMIT_SHA upload-sourcemaps $CI_PROJECT_DIR/dist -x .js -x .map --validate --verbose --rewrite --strip-common-prefix
+    - sentry-cli releases finalize $CI_COMMIT_SHA
 
 release:
   stage: release
