@@ -6,10 +6,10 @@ context('Page should render', () => {
   });
 
   it('Title should exists', () => {
-    cy.get('#appTitle').should('contain', 'Bienvenue angular-cli!');
+    cy.get('#appTitle').should('contain', 'angular-cli!');
 
     cy.get('#locale').select('en').then(() => {
-      cy.get('#appTitle').should('contain', 'Welcome to angular-cli!');
+      cy.get('#appTitle').should('contain', 'angular-cli!');
     });
   });
 });
