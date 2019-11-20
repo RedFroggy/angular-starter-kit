@@ -1,8 +1,10 @@
 import { AppComponent } from './app.component';
 import { createComponentFactory, Spectator } from '@ngneat/spectator/jest';
-import { RouterTestingModule } from '@angular/router/testing';
-import { SharedModule } from './shared/shared.module';
+
+import 'core-js/es/reflect';
 import { AppConfigModule } from './app-config.module';
+import { SharedLibsModule } from './shared/shared-libs.module';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AppComponent', () => {
 
@@ -10,7 +12,7 @@ describe('AppComponent', () => {
   let component: AppComponent;
 
   const createComponent = createComponentFactory({
-    imports: [SharedModule, RouterTestingModule, AppConfigModule],
+    imports: [AppConfigModule, SharedLibsModule, RouterTestingModule],
     component: AppComponent
   });
 

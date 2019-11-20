@@ -3,10 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "start": "npm run serve",
     "serve": "ng serve --watch --o --proxy-config ./webpack/proxy-dev.conf.js --configuration=dev --ssl --ssl-cert ./webpack/certificates/webpack.localhost.certificate.crt  --ssl-key ./webpack/certificates/webpack.localhost.private.key",
     "build": "ng build --prod --configuration=production",
     "lint": "ng lint",
-    "e2e": "ng e2e",
+    "e2e:ci": "./node_modules/.bin/cypress run -e TAGS='not @ignore'",
+    "e2e:ci:concurrent": "concurrently --success first --kill-others --no-color --raw \"ng serve --configuration=dev\" \"wait-on http-get://localhost:9000 && ./node_modules/.bin/cypress run -e TAGS='not @ignore'\"",
+    "e2e:open": "./node_modules/.bin/cypress open",
+    "e2e:open:concurrent": "concurrently \"ng serve --configuration=dev\" \"./node_modules/.bin/cypress open\"",
     "test": "jest --logHeapUsage -w=6 --testPathIgnorePatterns .spec.js --config ./src/test/jest.config.js",
     "test:ci": "npm run test -- --coverage --ci",
     "test:watch": "npm run test -- --watch",
@@ -54,7 +58,9 @@
     "@types/jasminewd2": "2.0.3",
     "@types/node": "8.9.4",
     "codelyzer": "5.0.0",
+    "concurrently": "5.0.0",
     "copy-webpack-plugin": "5.0.5",
+    "cypress": "3.6.1",
     "husky": "3.0.9",
     "jasmine-core": "3.5.0",
     "jasmine-spec-reporter": "4.2.1",
@@ -67,6 +73,9 @@
     "semantic-release": "15.13.30",
     "ts-node": "7.0.0",
     "tslint": "5.15.0",
-    "typescript": "3.4.3"
+    "typescript": "3.4.3",
+    "wait-on": "3.3.0",
+    "webpack-bundle-analyzer": "3.6.0",
+    "webpack-merge": "4.2.2"
   }
 }
