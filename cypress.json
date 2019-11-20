@@ -8,6 +8,7 @@
   "responseTimeout": 60000,
   "videoUploadOnPasses": false,
   "numTestsKeptInMemory": 20,
+  "video": false,
   "env": {
     "WAITING_TIME": 5000
   },
