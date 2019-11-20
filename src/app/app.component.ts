@@ -28,6 +28,7 @@ export class AppComponent {
 
   changeLocale() {
     this.translateService.use(this.locale);
+    throw  new Error('This is an example error');
   }
 
 }
