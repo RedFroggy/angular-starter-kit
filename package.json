@@ -14,8 +14,9 @@
     "test": "jest --logHeapUsage -w=6 --testPathIgnorePatterns .spec.js --config ./src/test/jest.config.js",
     "test:ci": "npm run test -- --coverage --ci",
     "test:watch": "npm run test -- --watch",
-    "semantic-release": "semantic-release",
-    "update-dependencies": "renovate"
+    "release": "semantic-release",
+    "update-dependencies": "renovate",
+    "analyze": "npm run build -- --stats-json && webpack-bundle-analyzer dist/stats.json"
   },
   "private": true,
   "dependencies": {

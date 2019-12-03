@@ -35,7 +35,7 @@ module.exports = {
         loader: 'file-loader?name=manifest.webapp'
       },
       {
-        test: /browserconfig.xml/, // Load manifest webapp for chrome
+        test: /browserconfig.xml/,
         loader: 'file-loader?name=browserconfig.xml'
       }
     ]
