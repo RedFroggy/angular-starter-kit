@@ -70,7 +70,7 @@ release:
     refs:
       - master
   script:
-    - npm run semantic-release
+    - npm run release
 
 update-dependencies:
   only:
