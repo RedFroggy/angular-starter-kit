@@ -46,3 +46,6 @@ testem.log
 /cypress/screenshots
 /cypress/videos
 Thumbs.db
+
+# Swagger
+/src/app/api/

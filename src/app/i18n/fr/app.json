@@ -1,5 +1,5 @@
 {
   "app": {
-    "title": "Bienvenue {{title}}!"
+    "pet-title": "Liste des animaux depuis l'API https://petstore.swagger.io/v2"
   }
 }
