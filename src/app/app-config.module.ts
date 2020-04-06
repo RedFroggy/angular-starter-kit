@@ -10,14 +10,14 @@ import { TranslateCacheModule, TranslateCacheService, TranslateCacheSettings } f
     SharedModule.forRoot(),
     NgJhipsterModule.forRoot({
       i18nEnabled: true,
-      defaultI18nLang: 'en'
+      defaultI18nLang: 'en',
     }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: translatePartialLoader,
-        deps: [HttpClient]
-      }
+        deps: [HttpClient],
+      },
     }),
     // Will store the current lang in storage (session or local)
     TranslateCacheModule.forRoot({
@@ -26,11 +26,11 @@ import { TranslateCacheModule, TranslateCacheService, TranslateCacheSettings } f
         useFactory: (translateService, translateCacheSettings) => {
           return new TranslateCacheService(translateService, translateCacheSettings);
         },
-        deps: [TranslateService, TranslateCacheSettings]
+        deps: [TranslateService, TranslateCacheSettings],
       },
-      cacheName: 'RDF_APP_LANG'
-    })
+      cacheName: 'RDF_APP_LANG',
+    }),
   ],
-  exports: [NgJhipsterModule, TranslateModule]
+  exports: [NgJhipsterModule, TranslateModule],
 })
 export class AppConfigModule {}

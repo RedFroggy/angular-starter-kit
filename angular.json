@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-cli": {
+    "angular-starter-kit": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -82,22 +82,22 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "angular-cli:build",
+            "browserTarget": "angular-starter-kit:build",
             "port": 9000
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-cli:build:production"
+              "browserTarget": "angular-starter-kit:build:production"
             },
             "dev": {
-              "browserTarget": "angular-cli:build:dev"
+              "browserTarget": "angular-starter-kit:build:dev"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-cli:build"
+            "browserTarget": "angular-starter-kit:build"
           }
         },
         "lint": {
@@ -114,5 +114,5 @@
         }
       }
     }},
-  "defaultProject": "angular-cli"
+  "defaultProject": "angular-starter-kit"
 }

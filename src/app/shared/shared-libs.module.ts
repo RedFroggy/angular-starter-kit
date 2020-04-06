@@ -6,16 +6,9 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  exports: [
-    HttpClientModule,
-    FormsModule,
-    CommonModule,
-    RouterModule,
-    TranslateModule
-  ]
+  exports: [HttpClientModule, FormsModule, CommonModule, RouterModule, TranslateModule],
 })
 /**
  * This module is used to import dans configure vendors libraries
  */
-export class SharedLibsModule {
-}
+export class SharedLibsModule {}

@@ -8,14 +8,13 @@ import localeEn from '@angular/common/locales/en';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
   title = 'angular-cli';
   locale: string;
 
   constructor(private translateService: TranslateService, private translateCacheService: TranslateCacheService) {
-
     this.locale = this.translateCacheService.getCachedLanguage() || environment.defaultLanguage;
     this.translateService.use(environment.defaultLanguage);
 
@@ -26,9 +25,8 @@ export class AppComponent {
     translateCacheService.init();
   }
 
-  changeLocale() {
+  changeLocale() {
     this.translateService.use(this.locale);
-    throw  new Error('This is an example error');
+    throw new Error('This is an example error');
   }
-
 }

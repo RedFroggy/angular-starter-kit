@@ -24,7 +24,7 @@ test-and-qa:
   coverage: '/All files[^|]*\|[^|]*\s+([\d\.]+)/'
   artifacts:
     name: $CI_COMMIT_REF_NAME
-    expire_in: 1h
+    expire_in: 1 days
     paths:
       - node_modules/
   script:
@@ -40,6 +40,7 @@ build:
   cache:
     policy: pull
   artifacts:
+    expire_in: 1 days
     paths:
       - dist/*
   only:
@@ -47,20 +48,6 @@ build:
       - master
   script:
     - npm run build
-
-sentry:
-  image: getsentry/sentry-cli
-  stage: sentry
-  except:
-    - schedules
-  only:
-    refs:
-      - master
-  script:
-    - sentry-cli releases new $CI_COMMIT_SHA
-    - sentry-cli releases set-commits --auto $CI_COMMIT_SHA
-    - sentry-cli releases files $CI_COMMIT_SHA upload-sourcemaps $CI_PROJECT_DIR/dist -x .js -x .map --validate --verbose --rewrite --strip-common-prefix
-    - sentry-cli releases finalize $CI_COMMIT_SHA
 
 release:
   stage: release
