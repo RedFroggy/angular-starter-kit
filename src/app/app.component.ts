@@ -14,13 +14,8 @@ export class AppComponent {
   title = 'angular-cli';
   locale: string;
 
-  constructor(
-    private translateService: TranslateService,
-    private translateCacheService: TranslateCacheService
-  ) {
-    this.locale =
-      this.translateCacheService.getCachedLanguage() ||
-      environment.defaultLanguage;
+  constructor(private translateService: TranslateService, private translateCacheService: TranslateCacheService) {
+    this.locale = this.translateCacheService.getCachedLanguage() || environment.defaultLanguage;
     this.translateService.use(environment.defaultLanguage);
 
     // Configure translation for app
