@@ -7,18 +7,17 @@ import { SharedLibsModule } from './shared/shared-libs.module';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AppComponent', () => {
-
   let spectator: Spectator<AppComponent>;
   let component: AppComponent;
 
   const createComponent = createComponentFactory({
     imports: [AppConfigModule, SharedLibsModule, RouterTestingModule],
-    component: AppComponent
+    component: AppComponent,
   });
 
   beforeEach(() => {
-   spectator = createComponent();
-   component = spectator.component;
+    spectator = createComponent();
+    component = spectator.component;
   });
 
   it('should create the app', () => {
