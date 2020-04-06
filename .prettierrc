@@ -1,4 +1,7 @@
 {
+  "printWidth": 120,
   "singleQuote": true,
-  "parser": "angular"
+  "useTabs": false,
+  "tabWidth": 2,
+  "bracketSpacing": true
 }
