@@ -5,20 +5,19 @@ import { SharedLibsModule } from './shared-libs.module';
 @NgModule({
   imports: [SharedLibsModule],
   exports: [SharedLibsModule],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 /**
  * This module is used to import and configure common modules for all project
  */
 export class SharedModule {
-
   /**
    * Declare only services that needs to be singleton
    * Only one instance of these services will be shared among lazy loaded modules
    */
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: SharedModule
+      ngModule: SharedModule,
     };
   }
 }
