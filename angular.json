@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-cli": {
+    "angular-starter-kit": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -114,5 +114,5 @@
         }
       }
     }},
-  "defaultProject": "angular-cli"
+  "defaultProject": "angular-starter-kit"
 }
