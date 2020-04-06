@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.petService.findPetsByStatus(['available']).subscribe(pets => this.pets = pets);
+    this.petService.findPetsByStatus(['available']).subscribe((pets) => (this.pets = pets));
   }
 
   changeLocale() {

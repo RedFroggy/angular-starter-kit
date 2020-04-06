@@ -9,15 +9,15 @@ import { HttpClient } from '@angular/common/http';
     SharedModule.forRoot(),
     NgJhipsterModule.forRoot({
       i18nEnabled: true,
-      defaultI18nLang: 'en'
+      defaultI18nLang: 'en',
     }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
         useFactory: translatePartialLoader,
-        deps: [HttpClient]
-      }
-    })
+        deps: [HttpClient],
+      },
+    }),
   ],
   exports: [NgJhipsterModule, TranslateModule],
 })
