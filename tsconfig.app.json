@@ -8,6 +8,8 @@
     "src/**/*.ts"
   ],
   "exclude": [
-    "src/**/*.spec.ts"
+    "src/api/**/.ts",
+    "src/**/*.spec.ts",
+    "node_modules"
   ]
 }

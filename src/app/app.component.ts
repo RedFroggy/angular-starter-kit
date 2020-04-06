@@ -1,32 +1,36 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { TranslateCacheService } from 'ngx-translate-cache';
 import { environment } from '../environments/environment';
 import { registerLocaleData } from '@angular/common';
 import localeEn from '@angular/common/locales/en';
+import { PetService } from './api/services';
+import { Pet } from './api/models/pet';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  title = 'angular-cli';
+export class AppComponent implements OnInit {
+  title = 'angular-starter-kit';
   locale: string;
+  pets: Pet[] = [];
 
-  constructor(private translateService: TranslateService, private translateCacheService: TranslateCacheService) {
-    this.locale = this.translateCacheService.getCachedLanguage() || environment.defaultLanguage;
+  constructor(private translateService: TranslateService, private petService: PetService) {
+    this.locale = environment.defaultLanguage;
     this.translateService.use(environment.defaultLanguage);
 
     // Configure translation for app
     registerLocaleData(localeEn, 'en');
 
     translateService.setDefaultLang(environment.defaultLanguage);
-    translateCacheService.init();
+  }
+
+  ngOnInit() {
+    this.petService.findPetsByStatus(['available']).subscribe((pets) => (this.pets = pets));
   }
 
   changeLocale() {
     this.translateService.use(this.locale);
-    throw new Error('This is an example error');
   }
 }
