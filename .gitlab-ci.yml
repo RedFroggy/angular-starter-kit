@@ -2,8 +2,8 @@ stages:
   - update-dependencies
   - test-and-qa
   - build
-  - sentry
   - release
+  - deploy
 
 variables:
   PROJECT_VERSION: '1.0'
@@ -67,3 +67,18 @@ update-dependencies:
     - npm ci
   script:
     - npm run update-dependencies
+
+pages:
+  stage: deploy
+  only:
+    - master
+  cache:
+    policy: pull
+  script:
+    - mkdir public/$CI_COMMIT_REF_NAME
+    - mv dist/* public/$CI_COMMIT_REF_NAME
+    - echo "Frontend deployed on URL $CI_PAGES_URL/$CI_COMMIT_REF_NAME"
+  artifacts:
+    expire_in: 1 days
+    paths:
+      - public
