@@ -8,10 +8,6 @@ stages:
 variables:
   PROJECT_VERSION: '1.0'
 
-cache:
-  paths:
-    - node_modules
-
 default:
   image: node:latest
 
@@ -22,9 +18,8 @@ test-and-qa:
     - schedules
     - tags
   coverage: '/All files[^|]*\|[^|]*\s+([\d\.]+)/'
-  artifacts:
-    name: $CI_COMMIT_REF_NAME
-    expire_in: 1 days
+  cache:
+    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
       - node_modules/
   script:
@@ -38,6 +33,9 @@ build:
   except:
     - schedules
   cache:
+    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
+    paths:
+      - node_modules/
     policy: pull
   artifacts:
     expire_in: 1 days
@@ -53,6 +51,11 @@ release:
   stage: release
   except:
     - schedules
+  cache:
+    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
+    paths:
+      - node_modules/
+    policy: pull
   only:
     refs:
       - master
@@ -75,6 +78,9 @@ pages:
   only:
     - master
   cache:
+    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
+    paths:
+      - node_modules/
     policy: pull
   script:
     - mkdir public/$CI_COMMIT_REF_NAME
