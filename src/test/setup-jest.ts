@@ -1,4 +1,5 @@
 import 'jest-preset-angular';
+import 'reflect-metadata';
 
 /* global mocks for jsdom */
 const mock = () => {

@@ -4,7 +4,8 @@ import { environment } from '../environments/environment';
 import { registerLocaleData } from '@angular/common';
 import localeEn from '@angular/common/locales/en';
 import { PetService } from './api/services';
-import { Pet } from './api/models/pet';
+import { plainToClass } from 'class-transformer';
+import { PetModel } from './features/pet/models/PetModel';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ import { Pet } from './api/models/pet';
 export class AppComponent implements OnInit {
   title = 'angular-starter-kit';
   locale: string;
-  pets: Pet[] = [];
+  pets: PetModel[] = [];
 
   constructor(private translateService: TranslateService, private petService: PetService) {
     this.locale = environment.defaultLanguage;
@@ -27,7 +28,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.petService.findPetsByStatus(['available']).subscribe((pets) => (this.pets = pets));
+    // Find pets and transform to PetModel
+    this.petService.findPetsByStatus(['available']).subscribe((pets) => (this.pets = plainToClass(PetModel, pets)));
   }
 
   changeLocale() {
