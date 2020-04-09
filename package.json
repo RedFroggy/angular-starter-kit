@@ -76,7 +76,7 @@
     "prettier": "2.0.3",
     "pretty-quick": "2.0.1",
     "reflect-metadata": "0.1.13",
-    "renovate": "19.195.5",
+    "renovate": "19.204.2",
     "semantic-release": "17.0.4",
     "ts-node": "8.8.2",
     "tslint": "6.1.1",
