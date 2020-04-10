@@ -83,7 +83,7 @@
     "tslint-angular": "3.0.2",
     "typescript": "3.8.3",
     "wait-on": "3.3.0",
-    "webpack-bundle-analyzer": "3.6.0",
+    "webpack-bundle-analyzer": "3.6.1",
     "webpack-merge": "4.2.2"
   },
   "cacheDirectories": [
