@@ -12,7 +12,7 @@ default:
   image: node:latest
 
 test-and-qa:
-  image: cypress/base:12.13.0
+  image: cypress/base:12.16.1
   stage: test-and-qa
   except:
     - schedules
