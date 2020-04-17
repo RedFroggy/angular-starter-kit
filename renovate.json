@@ -4,5 +4,13 @@
   "automergeType": "branch",
   "major": {
     "automerge": false
-  }
+  },
+  "hostRules": [
+    {
+      "domainName": "github.com",
+      "encrypted": {
+        "token": "q624iEjKjynf8gkq2k4EkK0rHdTkv7JlVbQ9jIGXUEcFbzWy1ktn4vHefCZF7gjXfKCtR4A3nPmC+uu/Izr8mRAQGvlawbngxAhXt4yT1m7BK3UEI7UCYoBHoY4m4n2E3jybuI6MnHWr2XYGTq9QQDlwli1ANiqb/SRuKsryP/QvoZiWY4t2Tx0rMMfjR9JuFdhDLvUd8z4F4VOiigrKjHJu0Mhhpysl1vhXxUyuMskzOYhkepxkGEyIAugbSq2h5z3slbw7hjZE+lT+YorCFpbIYDYmBmgxmtF9lzUMz62TWvhkFKWQ09k+fjEAAOU1Iae6P6X0yHqWaAwik5wbGA=="
+      }
+    }
+  ]
 }
