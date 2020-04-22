@@ -10,6 +10,8 @@ variables:
 
 default:
   image: node:latest
+  tags:
+    - aws
 
 test-and-qa:
   image: cypress/base:12.16.1
