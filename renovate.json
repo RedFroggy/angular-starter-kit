@@ -1,5 +1,5 @@
 {
-  "extends": ["config:base", ":semanticCommitTypeAll(chore)"],
+  "extends": ["config:base", ":semanticCommitTypeAll(chore)", "schedule:earlyMondays"],
   "automerge": true,
   "automergeType": "branch",
   "major": {
