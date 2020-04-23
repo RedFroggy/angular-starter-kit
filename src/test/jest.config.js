@@ -1,16 +1,20 @@
 module.exports = {
-  "preset": "jest-preset-angular",
-  "roots": [
+  preset: "jest-preset-angular",
+  roots: [
     "src"
   ],
-  "coverageDirectory": '<rootDir>/dist/test-results/',
-  "transform": {
+  coverageDirectory: '<rootDir>/dist/test-results/',
+  collectCoverageFrom: [
+    "src/app/**/*.ts",
+    "!src/app/api/**/*.ts"
+  ],
+  transform: {
     "^.+\\.(ts|js|html)$": "ts-jest"
   },
-  "setupFilesAfterEnv": [
+  setupFilesAfterEnv: [
     "<rootDir>/src/test/setup-jest.ts"
   ],
-  "moduleNameMapper": {
+  moduleNameMapper: {
     "@app/(.*)": "<rootDir>/src/app/$1",
     "@assets/(.*)": "<rootDir>/src/assets/$1",
     "@core/(.*)": "<rootDir>/src/app/core/$1",
@@ -18,15 +22,15 @@ module.exports = {
     "@src/(.*)": "<rootDir>/src/src/$1",
     "@state/(.*)": "<rootDir>/src/app/state/$1"
   },
-  "globals": {
+  globals: {
     "ts-jest": {
-      "tsConfig": "<rootDir>/tsconfig.spec.json",
-      "stringifyContentPathRegex": "\\.html$",
-      "astTransformers": [
+      tsConfig: "<rootDir>/tsconfig.spec.json",
+      stringifyContentPathRegex: "\\.html$",
+      astTransformers: [
         "jest-preset-angular/build/InlineFilesTransformer",
         "jest-preset-angular/build/StripStylesTransformer"
       ]
     }
   },
-  "rootDir": '../../'
+  rootDir: '../../'
 };
