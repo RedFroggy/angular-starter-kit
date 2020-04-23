@@ -6,6 +6,8 @@ module.exports = {
   coverageDirectory: '<rootDir>/dist/test-results/',
   collectCoverageFrom: [
     "src/app/**/*.ts",
+    "!src/app/**/*.spec.ts",
+    "!src/app/**/*.module.ts",
     "!src/app/api/**/*.ts"
   ],
   transform: {
