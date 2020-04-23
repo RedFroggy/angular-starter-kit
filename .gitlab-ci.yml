@@ -81,13 +81,10 @@ pages:
     - master
   cache:
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
-    paths:
-      - node_modules/
     policy: pull
   script:
-    - mkdir public/$CI_COMMIT_REF_NAME
-    - mv dist/* public/$CI_COMMIT_REF_NAME
-    - echo "Frontend deployed on URL $CI_PAGES_URL/$CI_COMMIT_REF_NAME"
+    - mv dist/* public/
+    - echo "Frontend deployed on URL $CI_PAGES_URL"
   artifacts:
     expire_in: 1 days
     paths:
