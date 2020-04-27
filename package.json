@@ -60,7 +60,7 @@
     "@types/jasminewd2": "2.0.8",
     "@types/node": "8.10.60",
     "codelyzer": "5.2.2",
-    "concurrently": "5.1.0",
+    "concurrently": "5.2.0",
     "copy-webpack-plugin": "5.1.1",
     "cypress": "4.4.1",
     "husky": "4.2.5",
