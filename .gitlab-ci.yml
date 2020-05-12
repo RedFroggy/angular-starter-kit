@@ -106,7 +106,7 @@ cloudfront:
     policy: pull
   script:
     - cd deploy
-    - npm update -g aws-cdk
+    - npm install -g aws-cdk
     - npm install
     - npm run build
     - cdk bootstrap
