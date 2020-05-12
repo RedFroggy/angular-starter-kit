@@ -4,6 +4,6 @@
       "domain": "redfroggy.io",
       "subdomain": "angular",
       "certificateArn": "arn:aws:acm:us-east-1:186975181746:certificate/fe9c3a76-3aa9-4ace-ae66-966757e1fd83",
-      "contentsPath": "dist"
+      "contentsPath": "../dist"
     }
 }
