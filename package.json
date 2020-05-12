@@ -84,7 +84,16 @@
     "typescript": "3.8.3",
     "wait-on": "4.0.2",
     "webpack-bundle-analyzer": "3.7.0",
-    "webpack-merge": "4.2.2"
+    "webpack-merge": "4.2.2",
+    "@aws-cdk/aws-certificatemanager": "*",
+    "@aws-cdk/aws-cloudfront": "*",
+    "@aws-cdk/aws-iam": "*",
+    "@aws-cdk/aws-route53": "*",
+    "@aws-cdk/aws-route53-targets": "*",
+    "@aws-cdk/aws-s3": "*",
+    "@aws-cdk/aws-s3-deployment": "*",
+    "@aws-cdk/core": "*",
+    "aws-cdk": "*"
   },
   "cacheDirectories": [
     "node_modules"

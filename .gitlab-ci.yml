@@ -104,9 +104,6 @@ cloudfront:
       - node_modules/
     policy: pull
   script:
-    - cd deploy
-    - npm install
     - npm install -g aws-cdk
-    - npm run build
     - cdk bootstrap
     - cdk deploy --require-approval=never
