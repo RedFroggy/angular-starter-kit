@@ -1,5 +1,5 @@
 {
-  "name": "angular-starter-kit",
+  "name": "static-site",
   "version": "1.0.0",
   "description": "Infrastructure for an HTTPS static site using S3 and CloudFront",
   "scripts": {
