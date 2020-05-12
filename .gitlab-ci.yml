@@ -107,7 +107,7 @@ cloudfront:
   script:
     - cd deploy
     - npm update -g aws-cdk
-    - npm update
+    - npm install
     - npm run build
     - cdk bootstrap
     - cdk deploy --require-approval=never
