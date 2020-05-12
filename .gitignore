@@ -50,3 +50,5 @@ Thumbs.db
 
 # Swagger
 /src/app/api/
+
+/deploy/*.js
