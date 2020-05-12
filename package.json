@@ -17,7 +17,8 @@
     "release": "semantic-release",
     "update-dependencies": "renovate",
     "analyze": "npm run build -- --stats-json && webpack-bundle-analyzer dist/stats.json",
-    "swagger": "node_modules/.bin/ng-swagger-gen --config swagger-config.json"
+    "swagger": "node_modules/.bin/ng-swagger-gen --config swagger-config.json",
+    "cdk": "cdk"
   },
   "private": true,
   "dependencies": {

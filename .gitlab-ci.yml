@@ -19,6 +19,7 @@ test-and-qa:
   except:
     - schedules
     - tags
+    - cloudfront
   coverage: '/All files[^|]*\|[^|]*\s+([\d\.]+)/'
   cache:
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
@@ -99,11 +100,14 @@ cloudfront:
     - master
     - cloudfront
   cache:
-    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
+    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR-cloudfront
     paths:
       - node_modules/
     policy: pull
   script:
-    - npm install -g aws-cdk
+    - cd deploy
+    - npm update -g aws-cdk
+    - npm update
+    - npm run build
     - cdk bootstrap
     - cdk deploy --require-approval=never
