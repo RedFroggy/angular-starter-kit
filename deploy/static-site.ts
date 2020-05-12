@@ -23,6 +23,7 @@ export class StaticSite extends Construct {
     super(parent, name);
 
     const siteDomain = props.siteSubDomain + '.' + props.domainName;
+    // tslint:disable-next-line:no-unused-expression
     new cdk.CfnOutput(this, 'Site', { value: 'https://' + siteDomain });
 
     // Content bucket
@@ -37,9 +38,11 @@ export class StaticSite extends Construct {
       // DESTROY, cdk destroy will attempt to delete the bucket, but will error if the bucket is not empty.
       removalPolicy: cdk.RemovalPolicy.DESTROY, // NOT recommended for production code
     });
+    // tslint:disable-next-line:no-unused-expression
     new cdk.CfnOutput(this, 'Bucket', { value: siteBucket.bucketName });
 
     // TLS certificate
+    // tslint:disable-next-line:no-unused-expression
     new cdk.CfnOutput(this, 'Certificate', { value: props.certificateArn });
 
     // CloudFront distribution that provides HTTPS
@@ -59,9 +62,11 @@ export class StaticSite extends Construct {
         },
       ],
     });
-    new cdk.CfnOutput(this, 'DistributionId', { value: distribution.distributionId });
+    // tslint:disable-next-line:no-unused-expression
+    new cdk.CfnOutput(this, 'CloudFrontDns', { value: distribution.domainName });
 
     // Deploy site contents to S3 bucket
+    // tslint:disable-next-line:no-unused-expression
     new s3deploy.BucketDeployment(this, 'DeployWithInvalidation', {
       sources: [s3deploy.Source.asset(props.contentsPath)],
       destinationBucket: siteBucket,

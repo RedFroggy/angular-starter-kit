@@ -19,6 +19,7 @@ class AngularStarterKitStack extends cdk.Stack {
   constructor(parent: cdk.App, name: string, props: cdk.StackProps) {
     super(parent, name, props);
 
+    // tslint:disable-next-line:no-unused-expression
     new StaticSite(this, 'StaticSite', {
       domainName: this.node.tryGetContext('domain'),
       siteSubDomain: this.node.tryGetContext('subdomain'),
@@ -30,6 +31,7 @@ class AngularStarterKitStack extends cdk.Stack {
 
 const app = new cdk.App();
 
+// tslint:disable-next-line:no-unused-expression
 new AngularStarterKitStack(app, 'AngularStarterKit', {
   env: {
     // Stack must be in us-east-1, because the ACM certificate for a

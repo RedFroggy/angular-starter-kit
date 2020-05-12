@@ -1,6 +1,6 @@
-# Static site
-<!--BEGIN STABILITY BANNER-->
----
+# Deploy Static site on aws
+
+## <!--BEGIN STABILITY BANNER-->
 
 ![Stability: Experimental](https://img.shields.io/badge/stability-Experimental-important.svg?style=for-the-badge)
 
@@ -11,21 +11,27 @@
 > If build is unsuccessful, please create an [issue](https://github.com/aws-samples/aws-cdk-examples/issues/new) so that we may debug the problem
 
 ---
+
 <!--END STABILITY BANNER-->
 
-This example creates the infrastructure for a static site, which uses an S3 bucket for storing the content.  The site contents (located in the 'site-contents' sub-directory) are deployed to the bucket.
+This example creates the infrastructure for a static site, which uses an S3 bucket for storing the content. The site contents (located in the 'site-contents' sub-directory) are deployed to the bucket.
 
 The site redirects from HTTP to HTTPS, using a CloudFront distribution, Route53 alias record, and ACM certificate.
 
 ## Prep
 
-The domain for the static site (i.e. mystaticsite.com) must be configured as a hosted zone in Route53 prior to deploying this example.  For instructions on configuring Route53 as the DNS service for your domain, see the [Route53 documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring.html).
+Create certificate for \*.redfroggy.io in certificate manager aws
+
+The domain for the static site (i.e. angular.redfroggy.io) must be configured as a hosted zone in OVH to deploying this example.
+Create Cname for angular.redfroggy.io with cloudfront's dns.
+
+Else for instructions on configuring Route53 as the DNS service for your domain, see the [Route53 documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring.html).
 
 ## Deploy
 
 ```
-$ npm install -g aws-cdk
-$ npm install
-$ npm run build
-$ cdk deploy -c domain=mystaticsite.com -c subdomain=www
+- npm install -g aws-cdk
+- npm run deploy-compile
+- cdk bootstrap
+- cdk deploy --require-approval=never -c domain=redfroggy.io -c subdomain=angular -c certificateArn=myCertificateArn -c contentsPath=dist
 ```
