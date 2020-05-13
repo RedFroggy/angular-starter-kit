@@ -17,7 +17,10 @@
     "release": "semantic-release",
     "update-dependencies": "renovate",
     "analyze": "npm run build -- --stats-json && webpack-bundle-analyzer dist/stats.json",
-    "swagger": "node_modules/.bin/ng-swagger-gen --config swagger-config.json"
+    "swagger": "node_modules/.bin/ng-swagger-gen --config swagger-config.json",
+    "aws-cdk": "cdk",
+    "aws-stack-build": "tsc --project deploy/tsconfig.json",
+    "aws-deploy" :"npm run aws-stack-build && npm run aws-cdk bootstrap && npm run aws-cdk deploy -- --require-approval=never"
   },
   "private": true,
   "dependencies": {
@@ -84,7 +87,14 @@
     "typescript": "3.8.3",
     "wait-on": "4.0.2",
     "webpack-bundle-analyzer": "3.7.0",
-    "webpack-merge": "4.2.2"
+    "webpack-merge": "4.2.2",
+    "@aws-cdk/aws-certificatemanager": "1.38.0",
+    "@aws-cdk/aws-cloudfront": "1.38.0",
+    "@aws-cdk/aws-iam": "1.38.0",
+    "@aws-cdk/aws-s3": "1.38.0",
+    "@aws-cdk/aws-s3-deployment": "1.38.0",
+    "@aws-cdk/core": "1.38.0",
+    "aws-cdk": "1.38.0"
   },
   "cacheDirectories": [
     "node_modules"

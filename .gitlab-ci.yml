@@ -89,3 +89,17 @@ pages:
     expire_in: 1 days
     paths:
       - public
+
+cloudfront:
+  stage: deploy
+  except:
+    - schedules
+  only:
+    - master
+  cache:
+    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
+    paths:
+      - node_modules/
+    policy: pull
+  script:
+    - npm run aws-deploy

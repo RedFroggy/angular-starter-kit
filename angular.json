@@ -27,7 +27,9 @@
             "tsConfig": "tsconfig.app.json",
             "aot": false,
             "polyfills": "src/polyfills.ts",
-            "assets": ["src/assets"],
+            "assets": [
+              "src/assets"
+            ],
             "styles": [],
             "scripts": []
           },
@@ -113,6 +115,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-starter-kit"
+    }
+  },
+  "defaultProject": "angular-starter-kit",
+  "cli": {
+    "analytics": false
+  }
 }
