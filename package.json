@@ -19,7 +19,8 @@
     "analyze": "npm run build -- --stats-json && webpack-bundle-analyzer dist/stats.json",
     "swagger": "node_modules/.bin/ng-swagger-gen --config swagger-config.json",
     "cdk": "cdk",
-    "deploy-compile": "tsc --project deploy/tsconfig.json"
+    "deploy-compile": "tsc --project deploy/tsconfig.json",
+    "aws-deploy" :"npm run deploy-compile && npm run cdk bootstrap && npm run cdk deploy -- --require-approval=never"
   },
   "private": true,
   "dependencies": {
