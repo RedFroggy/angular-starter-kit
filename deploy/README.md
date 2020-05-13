@@ -30,8 +30,11 @@ Else for instructions on configuring Route53 as the DNS service for your domain,
 ## Deploy
 
 ```
-- npm install -g aws-cdk
-- npm run deploy-compile
+- npm run aws-deploy
+
+same as
+
+- npm run aws-stack-build
 - cdk bootstrap
 - cdk deploy --require-approval=never -c domain=redfroggy.io -c subdomain=angular -c certificateArn=myCertificateArn -c contentsPath=dist
 ```

@@ -96,7 +96,6 @@ cloudfront:
     - schedules
   only:
     - master
-    - cloudfront
   cache:
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:

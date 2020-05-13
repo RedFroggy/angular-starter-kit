@@ -18,9 +18,9 @@
     "update-dependencies": "renovate",
     "analyze": "npm run build -- --stats-json && webpack-bundle-analyzer dist/stats.json",
     "swagger": "node_modules/.bin/ng-swagger-gen --config swagger-config.json",
-    "cdk": "cdk",
-    "deploy-compile": "tsc --project deploy/tsconfig.json",
-    "aws-deploy" :"npm run deploy-compile && npm run cdk bootstrap && npm run cdk deploy -- --require-approval=never"
+    "aws-cdk": "cdk",
+    "aws-stack-build": "tsc --project deploy/tsconfig.json",
+    "aws-deploy" :"npm run aws-stack-build && npm run aws-cdk bootstrap && npm run aws-cdk deploy -- --require-approval=never"
   },
   "private": true,
   "dependencies": {
@@ -88,15 +88,13 @@
     "wait-on": "4.0.2",
     "webpack-bundle-analyzer": "3.7.0",
     "webpack-merge": "4.2.2",
-    "@aws-cdk/aws-certificatemanager": "*",
-    "@aws-cdk/aws-cloudfront": "*",
-    "@aws-cdk/aws-iam": "*",
-    "@aws-cdk/aws-route53": "*",
-    "@aws-cdk/aws-route53-targets": "*",
-    "@aws-cdk/aws-s3": "*",
-    "@aws-cdk/aws-s3-deployment": "*",
-    "@aws-cdk/core": "*",
-    "aws-cdk": "*"
+    "@aws-cdk/aws-certificatemanager": "1.38.0",
+    "@aws-cdk/aws-cloudfront": "1.38.0",
+    "@aws-cdk/aws-iam": "1.38.0",
+    "@aws-cdk/aws-s3": "1.38.0",
+    "@aws-cdk/aws-s3-deployment": "1.38.0",
+    "@aws-cdk/core": "1.38.0",
+    "aws-cdk": "1.38.0"
   },
   "cacheDirectories": [
     "node_modules"
