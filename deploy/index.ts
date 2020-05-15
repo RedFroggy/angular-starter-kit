@@ -32,7 +32,7 @@ class AngularStarterKitStack extends cdk.Stack {
 const app = new cdk.App();
 
 // tslint:disable-next-line:no-unused-expression
-new AngularStarterKitStack(app, 'AngularStarterKit', {
+new AngularStarterKitStack(app, 'Angular', {
   env: {
     // Stack must be in us-east-1, because the ACM certificate for a
     // global CloudFront distribution must be requested in us-east-1.

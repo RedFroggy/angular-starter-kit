@@ -30,7 +30,7 @@ Else for instructions on configuring Route53 as the DNS service for your domain,
 ## Deploy
 
 ```
-- npm run aws-deploy
+- npm run aws-deploy -c domain=redfroggy.io -c subdomain=angular -c certificateArn=myCertificateArn -c
 
 same as
 
