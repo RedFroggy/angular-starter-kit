@@ -27,6 +27,10 @@ Create Cname for angular.redfroggy.io with cloudfront's dns.
 
 Else for instructions on configuring Route53 as the DNS service for your domain, see the [Route53 documentation](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring.html).
 
+## Test cloudformation template building
+
+- npm run aws-synth -- -- -c domain=redfroggy.io -c subdomain=angular -c certificateArn=myCertificateArn -c
+
 ## Deploy
 
 ```
