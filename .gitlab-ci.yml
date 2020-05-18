@@ -102,4 +102,4 @@ cloudfront:
       - node_modules/
     policy: pull
   script:
-    - npm run aws-deploy
+    - npm run aws-deploy -- -c domain=$DOMAIN -c subdomain=$SUBDOMAIN -c certificateArn=$CERTIFICATE_ARN
