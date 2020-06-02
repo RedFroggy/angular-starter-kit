@@ -51,3 +51,4 @@ Thumbs.db
 /src/app/api/
 
 /deploy/*.js
+cdk.out/
