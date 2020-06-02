@@ -1,5 +1,5 @@
 {
   "app": {
-    "pet-title": "Liste des animaux depuis l'API https://petstore.swagger.io/v2"
+    "title": "Angular starter kit"
   }
 }
