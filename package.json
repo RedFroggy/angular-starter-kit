@@ -20,8 +20,8 @@
     "swagger": "node_modules/.bin/ng-swagger-gen --config swagger-config.json",
     "aws-cdk": "cdk",
     "aws-stack-build": "tsc --project deploy/tsconfig.json",
-    "aws-synth" :"npm run aws-stack-build && npm run aws-cdk synth",
-    "aws-deploy" :"npm run aws-stack-build && npm run aws-cdk bootstrap && npm run aws-cdk deploy -- --require-approval=never"
+    "aws-synth": "npm run aws-stack-build && npm run aws-cdk synth",
+    "aws-deploy": "npm run aws-stack-build && npm run aws-cdk bootstrap && npm run aws-cdk deploy -- --require-approval=never"
   },
   "private": true,
   "dependencies": {
