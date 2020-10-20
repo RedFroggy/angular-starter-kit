@@ -1,10 +1,17 @@
 {
-  "extends": ["config:base", ":semanticCommitTypeAll(chore)", "schedule:earlyMondays"],
+  "extends": ["config:base", ":semanticCommitTypeAll(chore)"],
+  "timezone": "Europe/Paris",
+  "schedule": ["before 3am on the first day of the month"],
+  "prHourlyLimit": 30,
   "automerge": true,
   "automergeType": "branch",
   "major": {
     "automerge": false
   },
+  "recreateClosed": true,
+  "ignoreDeprecated": false,
+  "assigneesFromCodeOwners": true,
+  "reviewersFromCodeOwners": true,
   "hostRules": [
     {
       "domainName": "github.com",
