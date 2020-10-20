@@ -43,7 +43,7 @@
     "@ngx-translate/http-loader": "4.0.0",
     "class-transformer": "0.2.3",
     "messageformat": "2.3.0",
-    "ng-jhipster": "0.12.0",
+    "ng-jhipster": "0.16.0",
     "reflect-metadata": "0.1.13",
     "rxjs": "6.5.5",
     "tslib": "1.11.1",
