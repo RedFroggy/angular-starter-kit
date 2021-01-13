@@ -1,15 +1,22 @@
 <h1 align="center">
-  <a name="logo" href="https://www.redfroggy.fr"><img src="https://www.redfroggy.fr/wp-content/uploads/2016/01/Redfroggy_Logo_RVB-150x150.png" alt="RedFroggy" width="200"></a>
+  <a name="logo" href="https://www.redfroggy.fr"><img src=".gitlab/redfroggy_logo.png" alt="RedFroggy" width="200"></a>
 </h1>
 <h4 align="center">A RedFroggy project</h4>
 <br/>
 
 <div align="center">
-[![forthebadge](https://forthebadge.com/images/badges/fuck-it-ship-it.svg)](https://forthebadge.com)
-[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
-[![pipeline status](https://gitlab.com/red-froggy/angular-cli/badges/master/pipeline.svg)](https://gitlab.com/red-froggy/angular-cli/commits/master) [![coverage report](https://gitlab.com/red-froggy/angular-cli/badges/master/coverage.svg)](https://gitlab.com/red-froggy/angular-cli/commits/master) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+  <a href="https://forthebadge.com"><img src="https://forthebadge.com/images/badges/fuck-it-ship-it.svg"/></a>
+  <a href="https://forthebadge.com"><img src="https://forthebadge.com/images/badges/built-with-love.svg"/></a>
 </div>
+<div align="center">
+  <a href="https://gitlab.com/red-froggy/angular-cli/commits/master"><img src="https://gitlab.com/red-froggy/angular-cli/badges/master/pipeline.svg"/></a>
+  <a href="https://gitlab.com/red-froggy/angular-cli/commits/master"><img src="https://gitlab.com/red-froggy/angular-cli/badges/master/coverage.svg"/></a>
+   <a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg"/></a>
+</div>
+
+
 #Angular starter kit
+
 
 ## Installation
 
