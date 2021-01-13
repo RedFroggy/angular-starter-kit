@@ -1,0 +1,36 @@
+# .ls-lint.yml
+
+ls:
+  .js: kebabcase | pointcase
+  .ts: kebabcase | pointcase
+  .spec.ts: kebabcase | pointcase
+  .conf.js: kebabcase | pointcase
+  .resolver.ts: kebabcase | pointcase
+  .resolver.spec.ts: kebabcase | pointcase
+  .route.ts: kebabcase | pointcase
+  .model.ts: kebabcase | pointcase
+  .module.ts: kebabcase | pointcase
+  .service.ts: kebabcase | pointcase
+  .service.spec.ts: kebabcase | pointcase
+  .pipe.ts: kebabcase | pointcase
+  .pipe.spec.ts: kebabcase | pointcase
+  .directive.ts: kebabcase | pointcase
+  .directive.spec.ts: kebabcase | pointcase
+  .validator.ts: kebabcase | pointcase
+  .validator.spec.ts: kebabcase | pointcase
+  .component.ts: kebabcase | pointcase
+  .component.spec.ts: kebabcase | pointcase
+  .component.html: kebabcase | pointcase
+  .component.scss: kebabcase | pointcase
+  .json: kebabcase | pointcase
+
+ignore:
+  - node_modules
+  - .git
+  - .idea
+  - cypress
+  - dist
+  - out-tsc
+  - public
+  - swagger
+  - cdk.out

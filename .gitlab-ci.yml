@@ -63,29 +63,15 @@ release:
   script:
     - npm run release
 
-pages:
-  stage: deploy
-  except:
-    - schedules
-  only:
-    - master
-  cache:
-    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
-    policy: pull
-  script:
-    - mv dist/* public/
-    - echo "Frontend deployed on URL $CI_PAGES_URL"
-  artifacts:
-    expire_in: 1 days
-    paths:
-      - public
-
 cloudfront:
   stage: deploy
   except:
     - schedules
   only:
     - master
+  environment:
+    name: dev
+    url: https://angular.redfroggy.io
   cache:
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:

@@ -5,7 +5,7 @@ import { registerLocaleData } from '@angular/common';
 import localeEn from '@angular/common/locales/en';
 import { PetService } from './api/services';
 import { plainToClass } from 'class-transformer';
-import { PetModel } from './features/pet/models/PetModel';
+import { PetModel } from './features/pet/models/pet.model';
 
 @Component({
   selector: 'app-root',
