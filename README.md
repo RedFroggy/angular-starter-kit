@@ -1,7 +1,7 @@
 <h1 align="center">
-  <a name="logo" href="https://www.redfroggy.fr"><img src=".gitlab/redfroggy_logo.png" alt="RedFroggy" width="200"></a>
+  <a name="logo" href="https://www.redfroggy.fr"><img src=".gitlab/logo.png" alt="RedFroggy" width="200"></a>
+  <h4 align="center">A RedFroggy project</h4>
 </h1>
-<h4 align="center">A RedFroggy project</h4>
 <br/>
 
 <div align="center">
