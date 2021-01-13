@@ -1,6 +1,5 @@
 stages:
-  - install
-  - test-and-qa
+  - test
   - build
   - release
   - deploy
@@ -13,21 +12,9 @@ default:
   tags:
     - aws
 
-install-dependencies:
-  stage: install
-  except:
-    - schedules
-    - tags
-  cache:
-    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
-    paths:
-      - node_modules
-  script:
-    - npm ci
-
 test-and-qa:
   image: cypress/base:12.19.0
-  stage: test-and-qa
+  stage: test
   except:
     - schedules
     - tags
@@ -36,8 +23,9 @@ test-and-qa:
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
       - node_modules
-    policy: pull
+      - .jest-cache
   script:
+    - npm ci
     - npm run lint
     - npm run test:ci
     - npm run e2e:ci:concurrent
