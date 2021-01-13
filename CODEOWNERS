@@ -58,8 +58,4 @@
 ##                     RULES                                ##
 ##############################################################
 
-* @florent.perinel @michael.desigaud
-
-src/app/i18n/ @florent.perinel @michael.desigaud
-*.md @florent.perinel @michael.desigaud
-CODEOWNERS @michael.desigaud
+* @michael.desigaud
