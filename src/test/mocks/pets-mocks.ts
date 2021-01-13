@@ -1,9 +1,5 @@
 import { deepClone } from 'aws-cdk/lib/util';
 
-export function petsMocks() {
-  return deepClone(PETS_MOCK);
-}
-
 const PETS_MOCK = [
   {
     id: 9222968140491042959,
@@ -40,23 +36,9 @@ const PETS_MOCK = [
       }
     ],
     status: 'available'
-  },
-  {
-    id: 9222968140491042966,
-    category: {
-      id: 0,
-      name: 'string'
-    },
-    name: 'doggie',
-    photoUrls: [
-      'string'
-    ],
-    tags: [
-      {
-        id: 0,
-        name: 'string'
-      }
-    ],
-    status: 'available'
   }
 ];
+
+export function petsMocks() {
+  return deepClone(PETS_MOCK);
+}
