@@ -52,3 +52,4 @@ Thumbs.db
 
 /deploy/*.js
 cdk.out/
+.jest-cache/
