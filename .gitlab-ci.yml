@@ -1,4 +1,5 @@
 stages:
+  - install
   - test-and-qa
   - build
   - release
@@ -7,16 +8,22 @@ stages:
 variables:
   PROJECT_VERSION: '1.0'
 
-cache:
-  key: "$CI_COMMIT_REF_NAME"
-  paths:
-    - node_modules/
-    - .jest-cache
-
 default:
   image: node:latest
   tags:
     - aws
+
+install-dependencies:
+  stage: install
+  except:
+    - schedules
+    - tags
+  cache:
+    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
+    paths:
+      - node_modules
+  script:
+    - npm ci
 
 test-and-qa:
   image: cypress/base:12.19.0
@@ -26,9 +33,11 @@ test-and-qa:
     - tags
   coverage: '/All files[^|]*\|[^|]*\s+([\d\.]+)/'
   cache:
+    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
+    paths:
+      - node_modules
     policy: pull
   script:
-    - npm ci
     - npm run lint
     - npm run test:ci
     - npm run e2e:ci:concurrent
@@ -38,6 +47,9 @@ build:
   except:
     - schedules
   cache:
+    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
+    paths:
+      - node_modules
     policy: pull
   artifacts:
     expire_in: 1 days
@@ -54,6 +66,9 @@ release:
   except:
     - schedules
   cache:
+    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
+    paths:
+      - node_modules
     policy: pull
   only:
     refs:
@@ -71,6 +86,9 @@ cloudfront:
     name: dev
     url: https://angular.redfroggy.io
   cache:
+    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
+    paths:
+      - node_modules
     policy: pull
   script:
     - npm run aws-deploy -- -c domain=$DOMAIN -c subdomain=$SUBDOMAIN -c certificateArn=$CERTIFICATE_ARN
