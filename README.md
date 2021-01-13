@@ -1,7 +1,9 @@
-<h1 align="center">
-  <a name="logo" href="https://www.redfroggy.fr"><img src=".gitlab/logo.png" alt="RedFroggy" width="200"></a>
+# Angular starter kit
+
+<div align="center">
+  <a name="logo" href="https://www.redfroggy.fr"><img src=".gitlab/logo.png" alt="RedFroggy"></a>
   <h4 align="center">A RedFroggy project</h4>
-</h1>
+</div>
 <br/>
 
 <div align="center">
@@ -14,8 +16,6 @@
    <a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg"/></a>
 </div>
 
-
-#Angular starter kit
 
 
 ## Installation
