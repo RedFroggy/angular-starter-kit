@@ -18,34 +18,31 @@
 
 
 
-## Installation
+## Getting started
 
-- Execute `npm install` to get node dependencies
-
-## Run the app
-
+- `npm install` to get node dependencies
 - `npm run serve` to run locally
+- `npm run build` to build the application
 
-## Build the app
+## Tests
 
-- Run `npm run build` to build the application
+### Unit tests
 
-## Test the app
-
-- Run `npm run test` to start Jest unit tests.
-- To run unit tests with coverage: `npm run test:ci`
+- `npm run test` to start Jest tests.
+- `npm run test:ci` to run with coverage: 
 - HTML and coverage reports are generated under the `dist/test-results/html` and `dist/test-results/lcov-report` folders.
 
-## Check code quality
+### End to End tests
+- `ng e2e:open` to execute the end-to-end tests in gui mode.
+- `ng e2e:ci` to execute the end-to-end tests in headless mode (for CI env).
 
-Run `npm run lint`. It will both check angular code and file naming conventions.
 
-## Running end-to-end tests
+## Code quality
 
-Run `ng e2e:open` to execute the end-to-end tests in gui mode.
-Run `ng e2e:ci` to execute the end-to-end tests in headless mode (for CI env).
+`npm run lint`. It will both check angular code and file naming conventions.
 
-## AWS
+
+## Aws deployment
 
 The aws architecture is created via cloudformation and relies on [aws cdk scripts](deploy/index.ts)
 
@@ -54,10 +51,10 @@ The aws architecture is created via cloudformation and relies on [aws cdk script
 - S3 bucket: `angular.redfroggy.io`
 - A cloudfront distribution which is the entry point.
 
-### Deploy aws stack
+### Aws stack
 
-- Run `ǹpm run aws-synth` to check that the `cloudformation` stack is valid.
-- Run `ǹpm run aws-deploy`. Will create, deploy and run aws `cloudformation` scripts written in the [deploy folder](deploy).
+- `ǹpm run aws-synth` to check that the `cloudformation` stack is valid.
+- `ǹpm run aws-deploy`. Will create, deploy and run aws `cloudformation` scripts written in the [deploy folder](deploy).
 
 ## CI/CD workflow
 
@@ -82,15 +79,15 @@ The aws architecture is created via cloudformation and relies on [aws cdk script
 
 ## Perform a release
 
-Run `npm run release`. Will check commit messages, generate changelog, create a git tag.
+`npm run release`. Will check commit messages, generate changelog, create a git tag.
 
 ## Generate swagger definition files
 
-- Run `npm run swagger` : Wil generate the swagger files based on the [swagger-config.json](swagger-config.json) file.
+`npm run swagger` : Wil generate the swagger files based on the [swagger-config.json](swagger-config.json) file.
 
 ## Perform a webpack bundle analysis
 
-Run `npm run analyze`
+`npm run analyze`
 
 ## Environment variables
 
