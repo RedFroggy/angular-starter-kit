@@ -1,5 +1,4 @@
 stages:
-  - update-dependencies
   - test-and-qa
   - build
   - release
@@ -63,15 +62,6 @@ release:
       - master
   script:
     - npm run release
-
-update-dependencies:
-  only:
-    - schedules
-  stage: update-dependencies
-  before_script:
-    - npm ci
-  script:
-    - npm run update-dependencies
 
 pages:
   stage: deploy
