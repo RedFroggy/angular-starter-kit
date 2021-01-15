@@ -2,7 +2,6 @@
   "extends": ["config:base", ":semanticCommitTypeAll(chore)"],
   "timezone": "Europe/Paris",
   "prHourlyLimit": 30,
-  "schedule": ["after 10pm and before 5:00am"],
   "automerge": false,
   "automergeType": "branch",
   "major": {
