@@ -42,7 +42,7 @@
     "@ng-bootstrap/ng-bootstrap": "6.2.0",
     "@ngx-translate/core": "12.1.2",
     "@ngx-translate/http-loader": "4.0.0",
-    "class-transformer": "0.2.3",
+    "class-transformer": "0.3.2",
     "lodash": "4.17.20",
     "messageformat": "2.3.0",
     "ng-jhipster": "0.16.0",
