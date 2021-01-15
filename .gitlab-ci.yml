@@ -1,6 +1,5 @@
 stages:
-  - update-dependencies
-  - test-and-qa
+  - test
   - build
   - release
   - deploy
@@ -15,7 +14,7 @@ default:
 
 test-and-qa:
   image: cypress/base:12.19.0
-  stage: test-and-qa
+  stage: test
   except:
     - schedules
     - tags
@@ -23,7 +22,8 @@ test-and-qa:
   cache:
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
-      - node_modules/
+      - node_modules
+      - .jest-cache
   script:
     - npm ci
     - npm run lint
@@ -37,7 +37,7 @@ build:
   cache:
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
-      - node_modules/
+      - node_modules
     policy: pull
   artifacts:
     expire_in: 1 days
@@ -56,7 +56,7 @@ release:
   cache:
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
-      - node_modules/
+      - node_modules
     policy: pull
   only:
     refs:
@@ -64,42 +64,19 @@ release:
   script:
     - npm run release
 
-update-dependencies:
-  only:
-    - schedules
-  stage: update-dependencies
-  before_script:
-    - npm ci
-  script:
-    - npm run update-dependencies
-
-pages:
-  stage: deploy
-  except:
-    - schedules
-  only:
-    - master
-  cache:
-    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
-    policy: pull
-  script:
-    - mv dist/* public/
-    - echo "Frontend deployed on URL $CI_PAGES_URL"
-  artifacts:
-    expire_in: 1 days
-    paths:
-      - public
-
 cloudfront:
   stage: deploy
   except:
     - schedules
   only:
     - master
+  environment:
+    name: dev
+    url: https://angular.redfroggy.io
   cache:
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
-      - node_modules/
+      - node_modules
     policy: pull
   script:
     - npm run aws-deploy -- -c domain=$DOMAIN -c subdomain=$SUBDOMAIN -c certificateArn=$CERTIFICATE_ARN

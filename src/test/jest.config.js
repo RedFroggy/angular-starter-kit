@@ -8,8 +8,17 @@ module.exports = {
     "src/app/**/*.ts",
     "!src/app/**/*.spec.ts",
     "!src/app/**/*.module.ts",
-    "!src/app/api/**/*.ts"
+    "!src/app/api/**/*.ts",
+    "!src/app/features/**/*.model.ts"
   ],
+  coverageThreshold: {
+    global: {
+      statements: 100,
+      branches: 100,
+      functions: 100,
+      lines: 100
+    }
+  },
   transform: {
     "^.+\\.(ts|js|html)$": "ts-jest"
   },
@@ -24,6 +33,18 @@ module.exports = {
     "@src/(.*)": "<rootDir>/src/src/$1",
     "@state/(.*)": "<rootDir>/src/app/state/$1"
   },
+  reporters: [
+    'default',
+    [
+      "./node_modules/jest-html-reporter",
+      {
+        "pageTitle": "Faircost front unit tests report",
+        "outputPath": "dist/test-results/html/tests-report.html",
+        "includeFailureMsg": false,
+        "includeConsoleLog": false
+      }
+    ]
+  ],
   globals: {
     "ts-jest": {
       tsConfig: "<rootDir>/tsconfig.spec.json",
@@ -34,5 +55,6 @@ module.exports = {
       ]
     }
   },
+  cacheDirectory: "<rootDir>/.jest-cache",
   rootDir: '../../'
 };

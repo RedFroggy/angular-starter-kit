@@ -7,7 +7,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { SharedModule } from './shared/shared.module';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { petsMocks } from '../test/mocks/pets-mocks';
 
 describe('AppComponent', () => {
   let spectator: Spectator<AppComponent>;
@@ -36,12 +37,24 @@ describe('AppComponent', () => {
   it('should create the app', () => {
     expect(component).toBeDefined();
 
-    httpTestingController.expectOne('https://petstore.swagger.io/v2/pet/findByStatus?status=available');
+    const petsReq = httpTestingController.expectOne('https://petstore.swagger.io/v2/pet/findByStatus?status=available');
+    expect(petsReq.request.method).toBe('GET');
+    petsReq.flush(petsMocks());
   });
 
   it(`should have as title 'angular-cli'`, () => {
     expect(component.title).toEqual('angular-starter-kit');
+    httpTestingController.expectOne('https://petstore.swagger.io/v2/pet/findByStatus?status=available');
+  });
+
+  it('should change locale', () => {
 
     httpTestingController.expectOne('https://petstore.swagger.io/v2/pet/findByStatus?status=available');
+
+    const translateService: TranslateService = TestBed.inject(TranslateService);
+    jest.spyOn(translateService, 'use').mockReturnValue(null);
+
+    component.changeLocale();
+    expect(translateService.use).toHaveBeenCalled();
   });
 });
