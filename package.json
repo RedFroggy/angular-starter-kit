@@ -100,7 +100,7 @@
     "typescript": "3.8.3",
     "wait-on": "5.2.1",
     "webpack-bundle-analyzer": "3.9.0",
-    "webpack-merge": "4.2.2"
+    "webpack-merge": "5.7.3"
   },
   "cacheDirectories": [
     "node_modules"
