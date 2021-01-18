@@ -89,7 +89,7 @@
     "moment-locales-webpack-plugin": "1.2.0",
     "ng-mocks": "9.6.4",
     "ng-swagger-gen": "2.3.0",
-    "ngx-translate-messageformat-compiler": "4.7.0",
+    "ngx-translate-messageformat-compiler": "4.8.0",
     "prettier": "2.0.5",
     "pretty-quick": "2.0.2",
     "renovate": "19.239.11",
