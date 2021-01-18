@@ -90,7 +90,7 @@
     "ng-mocks": "9.6.4",
     "ng-swagger-gen": "2.3.0",
     "ngx-translate-messageformat-compiler": "4.8.0",
-    "prettier": "2.0.5",
+    "prettier": "2.2.1",
     "pretty-quick": "2.0.2",
     "renovate": "19.239.11",
     "semantic-release": "17.3.2",
