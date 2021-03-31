@@ -87,7 +87,7 @@
     "jest-preset-angular": "8.3.2",
     "merge-jsons-webpack-plugin": "1.0.21",
     "moment-locales-webpack-plugin": "1.2.0",
-    "ng-mocks": "11.4.0",
+    "ng-mocks": "11.9.1",
     "ng-swagger-gen": "2.3.0",
     "ngx-translate-messageformat-compiler": "4.8.0",
     "prettier": "2.2.1",
