@@ -47,7 +47,7 @@
     "messageformat": "2.3.0",
     "ng-jhipster": "0.16.0",
     "reflect-metadata": "0.1.13",
-    "rxjs": "6.6.3",
+    "rxjs": "6.6.7",
     "tslib": "2.1.0",
     "zone.js": "0.11.3"
   },
