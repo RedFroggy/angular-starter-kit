@@ -67,7 +67,7 @@
     "@commitlint/cli": "12.0.1",
     "@commitlint/config-conventional": "12.0.1",
     "@ls-lint/ls-lint": "1.9.2",
-    "@ngneat/spectator": "6.1.3",
+    "@ngneat/spectator": "7.1.0",
     "@semantic-release/changelog": "5.0.1",
     "@semantic-release/gitlab": "6.0.9",
     "@types/jasmine": "3.6.2",
