@@ -13,7 +13,7 @@ default:
     - aws
 
 test-and-qa:
-  image: cypress/base:12.19.0
+  image: cypress/base:14.16.0
   stage: test
   except:
     - schedules
