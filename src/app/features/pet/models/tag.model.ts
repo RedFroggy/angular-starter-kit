@@ -1,3 +1,3 @@
-import { Tag } from '../../../api/models';
+import { Tag } from '../../../api';
 
-export class TagModel extends Tag {}
+export class TagModel implements Tag {}

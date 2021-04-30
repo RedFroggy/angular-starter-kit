@@ -3,9 +3,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { environment } from '../environments/environment';
 import { registerLocaleData } from '@angular/common';
 import localeEn from '@angular/common/locales/en';
-import { PetService } from './api/services';
 import { plainToClass } from 'class-transformer';
 import { PetModel } from './features/pet/models/pet.model';
+import { PetService } from './api';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     // Find pets and transform to PetModel
-    this.petService.findPetsByStatus(['available']).subscribe((pets) => (this.pets = plainToClass(PetModel, pets)));
+    this.petService.findPetsByStatus('available').subscribe((pets) => this.pets = plainToClass(PetModel, pets));
   }
 
   changeLocale() {
