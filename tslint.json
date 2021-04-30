@@ -1,7 +1,7 @@
 {
   "extends": ["tslint:recommended", "tslint-angular"],
   "linterOptions": {
-    "exclude": ["src/api/**/*.ts"]
+    "exclude": ["src/app/api/**/*.ts"]
   },
   "rules": {
     "array-type": false,

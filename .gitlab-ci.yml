@@ -13,7 +13,7 @@ default:
     - aws
 
 test-and-qa:
-  image: cypress/base:14.16.0
+  image: timbru31/java-node:8
   stage: test
   except:
     - schedules
@@ -31,6 +31,7 @@ test-and-qa:
     - npm run e2e:ci:concurrent
 
 build:
+  image: timbru31/java-node:8
   stage: build
   except:
     - schedules
