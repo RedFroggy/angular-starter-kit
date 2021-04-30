@@ -1,5 +1,6 @@
 stages:
   - test
+  - e2e
   - build
   - release
   - deploy
@@ -28,6 +29,19 @@ test-and-qa:
     - npm ci
     - npm run lint
     - npm run test:ci
+
+test-e2e:
+  image: cypress/base:14.16.0
+  stage: e2e
+  except:
+    - schedules
+    - tags
+  cache:
+    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
+    paths:
+      - node_modules
+    policy: pull
+  script:
     - npm run e2e:ci:concurrent
 
 build:
