@@ -25,6 +25,7 @@ test-and-qa:
     paths:
       - node_modules
       - .jest-cache
+      - src/app/api
   script:
     - npm ci
     - npm run lint
@@ -36,6 +37,7 @@ test-e2e:
   except:
     - schedules
     - tags
+    - src/app/api
   cache:
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
