@@ -23,10 +23,10 @@ test-and-qa:
   cache:
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
-      - node_modules
+      - ~/.cache
       - .jest-cache
       - src/app/api
-      - /root/.cache/Cypress
+      - ~/.npm
   script:
     - npm ci
     - npm run lint
@@ -41,9 +41,9 @@ test-e2e:
   cache:
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
-      - node_modules
+      - ~/.cache
       - src/app/api
-      - /root/.cache/Cypress
+      - ~/.npm
     policy: pull
   script:
     - npm run e2e:ci:concurrent
