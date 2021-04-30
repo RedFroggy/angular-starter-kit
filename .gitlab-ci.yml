@@ -25,6 +25,7 @@ test-and-qa:
     paths:
       - node_modules
       - .jest-cache
+      - src/app/api
   script:
     - npm ci
     - npm run lint
@@ -32,7 +33,7 @@ test-and-qa:
 
 test-e2e:
   image: cypress/base:14.16.0
-  stage: e2e
+  stage: test
   except:
     - schedules
     - tags
@@ -40,6 +41,7 @@ test-e2e:
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
       - node_modules
+      - src/app/api
     policy: pull
   script:
     - npm run e2e:ci:concurrent
