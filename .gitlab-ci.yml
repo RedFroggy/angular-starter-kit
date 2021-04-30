@@ -15,8 +15,6 @@ default:
 
 test-and-qa:
   image: timbru31/java-node:8
-  variables:
-    CYPRESS_CACHE_FOLDER: '~/.cache/Cypress'
   stage: test
   except:
     - schedules
@@ -27,8 +25,6 @@ test-and-qa:
     paths:
       - node_modules
       - .jest-cache
-      - src/app/api
-      - ~/.cache/Cypress
   script:
     - npm ci
     - npm run lint
@@ -44,14 +40,12 @@ test-e2e:
     key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
     paths:
       - node_modules
-      - src/app/
-      - ~/.cache/Cypress
     policy: pull
   script:
+    - npm ci
     - npm run e2e:ci:concurrent
 
 build:
-  image: timbru31/java-node:8
   stage: build
   except:
     - schedules
