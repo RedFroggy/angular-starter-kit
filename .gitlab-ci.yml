@@ -33,7 +33,7 @@ test-and-qa:
 
 test-e2e:
   image: cypress/base:14.16.0
-  stage: test
+  stage: e2e
   except:
     - schedules
     - tags
