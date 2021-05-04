@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from './shared/shared.module';
-import { NgJhipsterModule, translatePartialLoader } from 'ng-jhipster';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function translatePartialLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, 'i18n/', `.json?buildTimestamp=${new Date()}`);
+}
 
 @NgModule({
   imports: [
     SharedModule.forRoot(),
-    NgJhipsterModule.forRoot({
-      i18nEnabled: true,
-      defaultI18nLang: 'en',
-    }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -19,6 +19,6 @@ import { HttpClient } from '@angular/common/http';
       },
     }),
   ],
-  exports: [NgJhipsterModule, TranslateModule],
+  exports: [TranslateModule],
 })
 export class AppConfigModule {}
