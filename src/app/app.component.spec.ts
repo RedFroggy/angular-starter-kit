@@ -9,6 +9,7 @@ import { TestBed } from '@angular/core/testing';
 import { SharedModule } from './shared/shared.module';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { petsMocks } from '../test/mocks/pets-mocks';
+import { of } from 'rxjs';
 
 const BASE_PATH = 'https://petstore3.swagger.io/api/v3';
 
@@ -54,7 +55,7 @@ describe('AppComponent', () => {
     httpTestingController.expectOne(`${BASE_PATH}/pet/findByStatus?status=available`);
 
     const translateService: TranslateService = TestBed.inject(TranslateService);
-    jest.spyOn(translateService, 'use').mockReturnValue(null);
+    jest.spyOn(translateService, 'use').mockReturnValue(of(null));
 
     component.changeLocale();
     expect(translateService.use).toHaveBeenCalled();
