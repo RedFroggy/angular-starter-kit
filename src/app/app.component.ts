@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     // Find pets and transform to PetModel
-    this.petService.findPetsByStatus('available').subscribe((pets) => this.pets = plainToClass(PetModel, pets));
+    this.petService.findPetsByStatus('available').subscribe((pets: PetModel[]) => this.pets = plainToClass(PetModel, pets));
   }
 
   changeLocale() {
