@@ -13,7 +13,7 @@
     "e2e:ci:concurrent": "npm run openapi:generate && concurrently --success first --kill-others --no-color --raw \"ng serve --configuration=dev\" \"wait-on http-get://localhost:9000 && ./node_modules/.bin/cypress run -e TAGS='not @ignore'\"",
     "e2e:open": "npm run openapi:generate && ./node_modules/.bin/cypress open",
     "e2e:open:concurrent": "npm run openapi:generate && concurrently \"ng serve --configuration=dev\" \"./node_modules/.bin/cypress open\"",
-    "test": "npm run openapi:generate && npm run lint && jest --logHeapUsage -w=6 --testPathIgnorePatterns .spec.js --config ./src/test/jest.config.js",
+    "test": "npm run openapi:generate && npm run lint && jest --logHeapUsage -w=2 --testPathIgnorePatterns .spec.js --config ./src/test/jest.config.js",
     "test:ci": "npm run test -- --coverage --ci",
     "test:watch": "npm run test -- --watch",
     "release": "semantic-release",
