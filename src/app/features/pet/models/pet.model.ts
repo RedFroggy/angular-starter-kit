@@ -10,4 +10,10 @@ export class PetModel implements Pet {
   status?: Pet.StatusEnum;
   @Type(() => TagModel)
   tags: Array<TagModel>;
+
+  constructor(name: string, photoUrls: Array<string>, tags: Array<TagModel>) {
+    this.name = name;
+    this.photoUrls = photoUrls;
+    this.tags = tags;
+  }
 }

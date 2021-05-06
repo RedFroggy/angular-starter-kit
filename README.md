@@ -114,7 +114,7 @@ The aws architecture is created via cloudformation and relies on [aws cdk script
 
 ### Code quality
 
-- [ts-lint](https://github.com/palantir/tslint)
+- [es-lint](https://eslint.org)
 - [ls-lint](https://github.com/loeffel-io/ls-lint) for checking file name conventions
 - [angular-tslint-rules](https://www.npmjs.com/package/angular-tslint-rules) for Angular [best practices](https://angular.io/guide/styleguide) linter
 - [prettier](https://prettier.io/) as a code formatter

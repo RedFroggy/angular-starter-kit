@@ -15,11 +15,11 @@ describe('French and english translation files', () => {
   let enFileNames: string[];
 
   // Load all json files (only once) for all unit tests
-  beforeAll(async (done) => {
-    glob(frFolder, null, (frErr, frFiles) => {
+  beforeAll((done) => {
+    glob(frFolder, null, (frErr: string, frFiles: string[]) => {
       frFileNames = frFiles;
 
-      glob(enFolder, null, (enErr, enFiles) => {
+      glob(enFolder, null, (enErr: string, enFiles: string[]) => {
         enFileNames = enFiles;
 
         done();
