@@ -34,6 +34,15 @@ test-and-qa:
 test-e2e:
   image: cypress/base:14.16.0
   stage: e2e
+  only:
+    changes:
+      - "src/**/*.ts"
+      - "src/**/*.html"
+      - "src/**/*.scss"
+      - "src/**/*.js"
+      - "package.json"
+      - "package-lock.json"
+      - "*.yml"
   except:
     - schedules
     - tags
