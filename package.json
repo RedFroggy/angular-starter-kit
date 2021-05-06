@@ -22,7 +22,8 @@
     "aws-cdk": "cdk",
     "aws-stack-build": "tsc --project deploy/tsconfig.json",
     "aws-synth": "npm run aws-stack-build && npm run aws-cdk synth",
-    "aws-deploy": "npm run aws-stack-build && npm run aws-cdk bootstrap && npm run aws-cdk deploy -- --require-approval=never"
+    "aws-deploy": "npm run aws-stack-build && npm run aws-cdk bootstrap && npm run aws-cdk deploy -- --require-approval=never",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
