@@ -14,7 +14,7 @@ default:
     - aws
 
 test-and-qa:
-  image: timbru31/java-node:8
+  image: timbru31/java-node:11
   stage: test
   except:
     - schedules
@@ -48,7 +48,7 @@ test-e2e:
     - npm run e2e:ci:concurrent
 
 build:
-  image: timbru31/java-node:8
+  image: timbru31/java-node:11
   stage: build
   except:
     - schedules
