@@ -2,7 +2,7 @@ version: 2 # use CircleCI 2.0
 
 job_defaults: &job_defaults
   docker:
-    - image: circleci/node:12-browsers
+    - image: timbru31/java-node:11
 
 cache_key: &cache_key angular-starter-kit-dependencies-cache-{{ .Branch }}-{{ checksum "package-lock.json" }}
 dist_key: &dist_key angular-starter-kit-dist-{{ .Revision }}
@@ -20,8 +20,7 @@ jobs:
           paths:
             - node_modules
   unit_test:
-    docker:
-      - image: timbru31/java-node:11
+    <<: *job_defaults
     steps:
       - checkout
       - restore_cache:
@@ -40,8 +39,7 @@ jobs:
 #      - run: npm run e2e:ci:concurrent
 
   build:
-    docker:
-      - image: timbru31/java-node:11
+    <<: *job_defaults
     steps:
       - checkout
       - restore_cache:
