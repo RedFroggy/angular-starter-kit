@@ -1,0 +1,97 @@
+version: 2 # use CircleCI 2.0
+
+job_defaults: &job_defaults
+  docker:
+    - image: timbru31/java-node:11
+
+cache_key: &cache_key angular-starter-kit-deps-cache-{{ .Branch }}-{{ checksum "package-lock.json" }}
+dist_key: &dist_key angular-starter-kit-dist-{{ .Revision }}
+
+jobs:
+  install:
+    <<: *job_defaults
+    steps:
+      - checkout
+      - restore_cache:
+          key: *cache_key
+      - run: npm ci
+      - save_cache:
+          key: *cache_key
+          paths:
+            - node_modules
+  unit_test:
+    <<: *job_defaults
+    steps:
+      - checkout
+      - restore_cache:
+          key: *cache_key
+      - run: npm run lint
+      - run: npm run test:ci
+
+  test_e2e:
+    docker:
+      - image: cypress/base:14.16.0
+    steps:
+      - checkout
+      - restore_cache:
+          key: *cache_key
+      - run: npm ci
+      - run: npm run e2e:ci:concurrent
+
+  build:
+    <<: *job_defaults
+    steps:
+      - checkout
+      - restore_cache:
+          key: *cache_key
+      - run: npm run build
+      - save_cache:
+          key: *dist_key
+          paths:
+            - dist
+
+  release:
+    <<: *job_defaults
+    steps:
+      - checkout
+      - restore_cache:
+          key: *cache_key
+      - run: npm run release
+
+  deploy:
+    <<: *job_defaults
+    steps:
+      - checkout
+      - restore_cache:
+          key: *cache_key
+      - run: npm run aws-deploy -- -c domain=$DOMAIN -c subdomain=$SUBDOMAIN -c certificateArn=$CERTIFICATE_ARN
+
+workflows:
+  version: 2
+  build-test-release:
+    jobs:
+      - install
+      - unit_test:
+          requires:
+            - install
+      - test_e2e:
+          requires:
+            - unit_test
+      - build:
+          requires:
+            - test_e2e
+          filters:
+            branches:
+              only: master
+      - release:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+      - deploy:
+          requires:
+            - release
+          filters:
+            branches:
+              only: master
