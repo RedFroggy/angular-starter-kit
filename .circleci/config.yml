@@ -4,7 +4,7 @@ job_defaults: &job_defaults
   docker:
     - image: circleci/node:12-browsers
 
-cache_key: &cache_key angular-starter-kit-deps-cache-{{ .Branch }}-{{ checksum "package-lock.json" }}
+cache_key: &cache_key angular-starter-kit-dependencies-cache-{{ .Branch }}-{{ checksum "package-lock.json" }}
 dist_key: &dist_key angular-starter-kit-dist-{{ .Revision }}
 
 jobs:
