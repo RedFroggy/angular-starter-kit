@@ -74,12 +74,12 @@ workflows:
       - unit_test:
           requires:
             - install
-      - test_e2e:
-          requires:
-            - unit_test
+#      - test_e2e:
+#          requires:
+#            - unit_test
       - build:
           requires:
-            - install
+            - unit_test
           filters:
             branches:
               only: master
