@@ -2,7 +2,7 @@ version: 2 # use CircleCI 2.0
 
 job_defaults: &job_defaults
   docker:
-    - image: timbru31/java-node:11
+    - image: cimg/openjdk:11.0.0
 
 cache_key: &cache_key angular-starter-kit-v1-deps-cache-{{ .Branch }}-{{ checksum "package-lock.json" }}
 dist_key: &dist_key angular-starter-kit-v1-dist-{{ .Revision }}
@@ -14,6 +14,10 @@ jobs:
       - checkout
       - restore_cache:
           key: *cache_key
+      - run: apt-get update
+      - run: apt-get install curl
+      - run: curl -sL https://deb.nodesource.com/setup_14.x | bash
+      - run: apt-get install nodejs
       - run: npm ci
       - save_cache:
           key: *cache_key
