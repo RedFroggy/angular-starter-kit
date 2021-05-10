@@ -27,6 +27,8 @@ jobs:
     <<: *job_defaults
     steps:
       - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
       - restore_cache:
           key: *cache_key
       - run: npm run lint
@@ -41,6 +43,8 @@ jobs:
     <<: *job_defaults
     steps:
       - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
       - restore_cache:
           key: *cache_key
       - restore_cache:
