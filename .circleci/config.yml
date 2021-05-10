@@ -6,6 +6,7 @@ job_defaults: &job_defaults
 
 cache_key: &cache_key angular-starter-kit-v1-deps-cache-{{ .Branch }}-{{ checksum "package-lock.json" }}
 dist_key: &dist_key angular-starter-kit-v1-dist-{{ .Revision }}
+api_key: &api_key angular-starter-kit-v1-api-{{ .Revision }}
 
 jobs:
   install:
@@ -27,12 +28,25 @@ jobs:
           key: *cache_key
       - run: npm run test:ci
       - run: npm run codecov
-      - run: npm run e2e:ci:concurrent
       - run: npm run build
       - save_cache:
           key: *dist_key
           paths:
             - dist
+      - save_cache:
+          key: *api_key
+          paths:
+            - src/app/api
+
+  test:e2e:
+    docker:
+      - image: cypress/base:14.16.0
+    steps:
+      - checkout
+      - restore_cache:
+          key: *api_key
+      - run: npm run e2e:ci:concurrent
+
   release:
     <<: *job_defaults
     steps:
@@ -52,9 +66,12 @@ workflows:
       - build:
           requires:
             - install
-      - release:
+      - test:e2e:
           requires:
             - build
+      - release:
+          requires:
+            - test:e2e
           filters:
             branches:
               only: master
