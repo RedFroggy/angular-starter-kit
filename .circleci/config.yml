@@ -27,12 +27,12 @@ jobs:
           key: *cache_key
       - run: npm run test:ci
       - run: npm run codecov
+      - run: npm run e2e:ci:concurrent
       - run: npm run build
       - save_cache:
           key: *dist_key
           paths:
             - dist
-
   release:
     <<: *job_defaults
     steps:
