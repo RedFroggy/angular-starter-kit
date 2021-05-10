@@ -6,6 +6,7 @@ job_defaults: &job_defaults
 
 cache_key: &cache_key angular-starter-kit-v1-deps-cache-{{ .Branch }}-{{ checksum "package-lock.json" }}
 dist_key: &dist_key angular-starter-kit-v1-dist-{{ .Revision }}
+cypress_cache_key: &cypress_cache_key angular-starter-kit-v1-cypress_cache-{{ .Branch }}-{{ checksum "package-lock.json" }}
 
 jobs:
   install:
@@ -19,7 +20,10 @@ jobs:
           key: *cache_key
           paths:
             - node_modules
-
+      - save_cache:
+          key: *cypress_cache_key
+          paths:
+            - ~/.cache/Cypress
   build:
     <<: *job_defaults
     steps:
@@ -40,6 +44,9 @@ jobs:
       - checkout
       - restore_cache:
           key: *cache_key
+      - restore_cache:
+          key: *cypress_cache_key
+      - run: export CYPRESS_CACHE_FOLDER = ~/.cache/Cypress
       - run: npm run e2e:ci:concurrent
 
   release:
