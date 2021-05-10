@@ -4,12 +4,13 @@ job_defaults: &job_defaults
   docker:
     - image: timbru31/java-node:11
 
-cache_key: &cache_key angular-starter-kit-dependencies-cache-{{ .Branch }}-{{ checksum "package-lock.json" }}
-dist_key: &dist_key angular-starter-kit-dist-{{ .Revision }}
+cache_key: &cache_key angular-starter-kit-v1-deps-cache-{{ .Branch }}-{{ checksum "package-lock.json" }}
+dist_key: &dist_key angular-starter-kit-v1-dist-{{ .Revision }}
 
 jobs:
   install:
-    <<: *job_defaults
+    docker:
+      - image: circleci/node:12-browsers
     steps:
       - checkout
       - restore_cache:
@@ -19,7 +20,7 @@ jobs:
           key: *cache_key
           paths:
             - node_modules
-  unit_test:
+  build:
     <<: *job_defaults
     steps:
       - checkout
@@ -27,13 +28,6 @@ jobs:
           key: *cache_key
       - run: npm run lint
       - run: npm run test:ci
-
-  build:
-    <<: *job_defaults
-    steps:
-      - checkout
-      - restore_cache:
-          key: *cache_key
       - run: npm run build
       - save_cache:
           key: *dist_key
@@ -46,40 +40,23 @@ jobs:
       - checkout
       - restore_cache:
           key: *cache_key
-      - run: npm run release
-
-  deploy:
-    <<: *job_defaults
-    steps:
-      - checkout
       - restore_cache:
-          key: *cache_key
-      - run: npm run aws-deploy -- -c domain=$DOMAIN -c subdomain=$SUBDOMAIN -c certificateArn=$CERTIFICATE_ARN
+          key: *dist_key
+      - run: npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
+      - run: cp package.json dist/main
+      - run: npm run semantic-release
 
 workflows:
   version: 2
   build-test-release:
     jobs:
       - install
-      - unit_test:
-          requires:
-            - install
       - build:
           requires:
-            - unit_test
-          filters:
-            branches:
-              only: master
+            - install
       - release:
-          type: approval
           requires:
             - build
-          filters:
-            branches:
-              only: master
-      - deploy:
-          requires:
-            - release
           filters:
             branches:
               only: master
