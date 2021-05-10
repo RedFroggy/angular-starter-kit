@@ -2,7 +2,7 @@ version: 2 # use CircleCI 2.0
 
 job_defaults: &job_defaults
   docker:
-    - image: circleci/node:12-browsers
+    - image: cimg/node:14.16.1-browsers
 
 cache_key: &cache_key angular-starter-kit-v1-deps-cache-{{ .Branch }}-{{ checksum "package-lock.json" }}
 dist_key: &dist_key angular-starter-kit-v1-dist-{{ .Revision }}
