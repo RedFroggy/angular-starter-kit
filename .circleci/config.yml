@@ -46,7 +46,7 @@ jobs:
           key: *cache_key
       - restore_cache:
           key: *cypress_cache_key
-      - run: export CYPRESS_CACHE_FOLDER = ~/.cache/Cypress
+      - run: export CYPRESS_CACHE_FOLDER=~/.cache/Cypress
       - run: npm run e2e:ci:concurrent
 
   release:
