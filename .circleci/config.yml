@@ -30,24 +30,17 @@ jobs:
       - checkout
       - restore_cache:
           key: *cache_key
+      - restore_cache:
+          key: *cypress_cache_key
       - run: npm run test:ci
       - run: npm run codecov
+      - run: export CYPRESS_CACHE_FOLDER=~/.cache/Cypress
+      - run: npm run e2e:ci:concurrent
       - run: npm run build
       - save_cache:
           key: *dist_key
           paths:
             - dist
-
-  test:e2e:
-    <<: *job_defaults
-    steps:
-      - checkout
-      - restore_cache:
-          key: *cache_key
-      - restore_cache:
-          key: *cypress_cache_key
-      - run: export CYPRESS_CACHE_FOLDER=~/.cache/Cypress
-      - run: npm run e2e:ci:concurrent
 
   release:
     <<: *job_defaults
@@ -68,12 +61,9 @@ workflows:
       - build:
           requires:
             - install
-      - test:e2e:
-          requires:
-            - build
       - release:
           requires:
-            - test:e2e
+            - build
           filters:
             branches:
               only: master
