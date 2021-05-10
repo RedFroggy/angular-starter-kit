@@ -16,10 +16,8 @@ jobs:
           docker_layer_caching: true
       - restore_cache:
           key: *cache_key
-      - run: apt-get update
-      - run: apt-get -y install curl
-      - run: curl -sL https://deb.nodesource.com/setup_14.x | bash
-      - run: apt-get -y install nodejs
+      - run: apt-get update && apt-get -y install curl
+      - run: curl -sL https://deb.nodesource.com/setup_14.x | bash && apt-get -y install nodejs
       - run: npm ci
       - save_cache:
           key: *cache_key
@@ -31,6 +29,8 @@ jobs:
       - checkout
       - restore_cache:
           key: *cache_key
+      - run: apt-get update && apt-get -y install curl
+      - run: curl -sL https://deb.nodesource.com/setup_14.x | bash && apt-get -y install nodejs
       - run: npm run lint
       - run: npm run test:ci
       - run: npm run build
@@ -47,6 +47,8 @@ jobs:
           key: *cache_key
       - restore_cache:
           key: *dist_key
+      - run: apt-get update && apt-get -y install curl
+      - run: curl -sL https://deb.nodesource.com/setup_14.x | bash && apt-get -y install nodejs
       - run: npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
       - run: cp package.json dist/main
       - run: npm run semantic-release
