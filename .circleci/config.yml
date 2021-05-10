@@ -15,9 +15,9 @@ jobs:
       - restore_cache:
           key: *cache_key
       - run: apt-get update
-      - run: apt-get install curl
+      - run: apt-get -y install curl
       - run: curl -sL https://deb.nodesource.com/setup_14.x | bash
-      - run: apt-get install nodejs
+      - run: apt-get -y install nodejs
       - run: npm ci
       - save_cache:
           key: *cache_key
