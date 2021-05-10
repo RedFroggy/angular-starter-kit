@@ -28,16 +28,6 @@ jobs:
       - run: npm run lint
       - run: npm run test:ci
 
-#  test_e2e:
-#    docker:
-#      - image: cypress/base:14.16.0
-#    steps:
-#      - checkout
-#      - restore_cache:
-#          key: *cache_key
-#      - run: npm ci
-#      - run: npm run e2e:ci:concurrent
-
   build:
     <<: *job_defaults
     steps:
@@ -74,9 +64,6 @@ workflows:
       - unit_test:
           requires:
             - install
-#      - test_e2e:
-#          requires:
-#            - unit_test
       - build:
           requires:
             - unit_test
