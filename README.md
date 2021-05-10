@@ -9,14 +9,13 @@
 <div align="center">
   <a href="https://forthebadge.com"><img src="https://forthebadge.com/images/badges/fuck-it-ship-it.svg"/></a>
   <a href="https://forthebadge.com"><img src="https://forthebadge.com/images/badges/built-with-love.svg"/></a>
+  <a href="https://forthebadge.com"><img src="https://forthebadge.com/images/badges/made-with-javascript.svg"/></a>
 </div>
 <div align="center">
-  <a href="https://gitlab.com/red-froggy/angular-cli/commits/master"><img src="https://gitlab.com/red-froggy/angular-cli/badges/master/pipeline.svg"/></a>
-  <a href="https://gitlab.com/red-froggy/angular-cli/commits/master"><img src="https://gitlab.com/red-froggy/angular-cli/badges/master/coverage.svg"/></a>
-   <a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg"/></a>
+  <a href="https://circleci.com/gh/RedFroggy/angular-starter-kit"><img src="https://circleci.com/gh/RedFroggy/angular-starter-kit.svg?style=svg"/></a>
+  <a href="https://codecov.io/gh/RedFroggy/angular-starter-kit"><img src="https://codecov.io/gh/RedFroggy/angular-starter-kit/branch/master/graph/badge.svg?token=XM9R6ZV9SJ"/></a>
+  <a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg"/></a>
 </div>
-
-
 
 ## Getting started
 
@@ -29,18 +28,17 @@
 ### Unit tests
 
 - `npm run test` to start Jest tests.
-- `npm run test:ci` to run with coverage: 
+- `npm run test:ci` to run with coverage:
 - HTML and coverage reports are generated under the `dist/test-results/html` and `dist/test-results/lcov-report` folders.
 
 ### End to End tests
+
 - `ng e2e:open` to execute the end-to-end tests in gui mode.
 - `ng e2e:ci` to execute the end-to-end tests in headless mode (for CI env).
-
 
 ## Code quality
 
 `npm run lint`. It will both check angular code and file naming conventions.
-
 
 ## Aws deployment
 
@@ -62,20 +60,20 @@ The aws architecture is created via cloudformation and relies on [aws cdk script
 
 ![alt text](.gitlab/gitlab_branch_workflow.png 'Gilab branch workflow')
 
-| Job           | Description                                                                                                     |
-| ------------- | --------------------------------------------------------------------------------------------------------------- |
-| test-and-qa   | Angular unit tests, e2e (cypress) tests and lint verifications                                                  |
+| Job         | Description                                                    |
+| ----------- | -------------------------------------------------------------- |
+| test-and-qa | Angular unit tests, e2e (cypress) tests and lint verifications |
 
 ### Master workflow
 
 ![alt text](.gitlab/gitlab_master_workflow.png 'Gilab master workflow')
 
-| Job           | Description                                                                                     |
-| -----------   | ------------------------------------------------------------------------------------------------|
-| test-and-qa   | Angular unit tests, e2e (cypress) tests and lint verifications                                  |
-| build         | Build the Angular application                                                                   |
-| release       | Manual job. Run `semantic-release` and perform a new release (changelog generation, git tag)    |
-| cloudfront    | Deploy the Angular stack in AWS using  `AWS CDK``                                               |
+| Job         | Description                                                                                  |
+| ----------- | -------------------------------------------------------------------------------------------- |
+| test-and-qa | Angular unit tests, e2e (cypress) tests and lint verifications                               |
+| build       | Build the Angular application                                                                |
+| release     | Manual job. Run `semantic-release` and perform a new release (changelog generation, git tag) |
+| cloudfront  | Deploy the Angular stack in AWS using `AWS CDK``                                             |
 
 ## Perform a release
 
@@ -91,11 +89,11 @@ The aws architecture is created via cloudformation and relies on [aws cdk script
 
 ## Environment variables
 
-| Key               | Value                                                                           |
-| ----------------- | ------------------------------------------------------------------------------- |
-| CERTTIFICATE_ARN  | `AWS CDK` role arn. Used to perform action on aws cloudformation stack          |
-| DOMAIN_DEV        | `AWS CDK` domain. Application domain used in cldoufront, route53, etc           |
-| SUBDOMAIN_DEV     | `AWS CDK` subdomain. Application domain used in cldoufront, route53, etc        |
+| Key              | Value                                                                    |
+| ---------------- | ------------------------------------------------------------------------ |
+| CERTTIFICATE_ARN | `AWS CDK` role arn. Used to perform action on aws cloudformation stack   |
+| DOMAIN_DEV       | `AWS CDK` domain. Application domain used in cldoufront, route53, etc    |
+| SUBDOMAIN_DEV    | `AWS CDK` subdomain. Application domain used in cldoufront, route53, etc |
 
 ### Framework
 

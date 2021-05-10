@@ -26,6 +26,7 @@ jobs:
       - restore_cache:
           key: *cache_key
       - run: npm run test:ci
+      - run: npm run codecov
       - run: npm run build
       - save_cache:
           key: *dist_key
