@@ -97,7 +97,7 @@
     "ng-mocks": "11.10.0",
     "ngx-translate-messageformat-compiler": "4.9.0",
     "prettier": "2.2.1",
-    "pretty-quick": "3.1.0",
+    "pretty-quick": "3.1.1",
     "renovate": "25.5.0",
     "semantic-release": "17.4.2",
     "ts-node": "9.1.1",
