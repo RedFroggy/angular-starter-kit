@@ -8,7 +8,7 @@ module.exports = {
     "src/app/**/*.ts",
     "!src/app/**/*.spec.ts",
     "!src/app/**/*.module.ts",
-    "!src/app/api/**/*.ts",
+    "!src/app/shared/api/**/*.ts",
     "!src/app/features/**/*.model.ts"
   ],
   coverageThreshold: {
@@ -20,12 +20,13 @@ module.exports = {
     }
   },
   transform: {
-    "^.+\\.(ts|js|html)$": "ts-jest"
+    "^.+\\.(ts|js|html)$": "jest-preset-angular"
   },
   setupFilesAfterEnv: [
     "<rootDir>/src/test/setup-jest.ts"
   ],
   moduleNameMapper: {
+    "app/(.*)": "<rootDir>/src/app/$1",
     "@app/(.*)": "<rootDir>/src/app/$1",
     "@assets/(.*)": "<rootDir>/src/assets/$1",
     "@core/(.*)": "<rootDir>/src/app/core/$1",
@@ -47,12 +48,8 @@ module.exports = {
   ],
   globals: {
     "ts-jest": {
-      tsConfig: "<rootDir>/tsconfig.spec.json",
-      stringifyContentPathRegex: "\\.html$",
-      astTransformers: [
-        "jest-preset-angular/build/InlineFilesTransformer",
-        "jest-preset-angular/build/StripStylesTransformer"
-      ]
+      tsconfig: "<rootDir>/tsconfig.spec.json",
+      stringifyContentPathRegex: "\\.html$"
     }
   },
   cacheDirectory: "<rootDir>/.jest-cache",

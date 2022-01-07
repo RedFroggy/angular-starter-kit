@@ -1,6 +1,6 @@
 import { TagModel } from './tag.model';
 import { Type } from 'class-transformer';
-import { Category, Pet } from '../../../api';
+import { Category, Pet } from 'app/shared/api';
 
 export class PetModel implements Pet {
   id?: number;
