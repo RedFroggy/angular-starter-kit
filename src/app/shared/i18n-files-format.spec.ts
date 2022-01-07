@@ -1,5 +1,5 @@
 /**
- * This unit tests compare both english and french i18n json files
+ * This unit tests compare both english and French i18n json files
  * and verify that there is no missing keys and that the order is the same
  */
 
@@ -7,7 +7,7 @@ describe('French and english translation files', () => {
   const deepKeys = require('deep-keys');
   const glob = require('glob');
 
-  const tradFolder = 'src/**/i18n';
+  const tradFolder = '/src/**/i18n';
   const frFolder = tradFolder + '/fr/*.json';
   const enFolder = tradFolder + '/en/*.json';
 

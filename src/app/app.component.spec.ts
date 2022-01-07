@@ -8,8 +8,8 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { TestBed } from '@angular/core/testing';
 import { SharedModule } from './shared/shared.module';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { petsMocks } from '../test/mocks/pets-mocks';
 import { of } from 'rxjs';
+import { PetFixture } from '../test/fixtures/pet.fixture';
 
 const BASE_PATH = 'https://petstore3.swagger.io/api/v3';
 
@@ -42,7 +42,7 @@ describe('AppComponent', () => {
 
     const petsReq = httpTestingController.expectOne(`${BASE_PATH}/pet/findByStatus?status=available`);
     expect(petsReq.request.method).toBe('GET');
-    petsReq.flush(petsMocks());
+    petsReq.flush(PetFixture.aListOfPets());
   });
 
   it(`should have as title 'angular-cli'`, () => {
@@ -51,7 +51,6 @@ describe('AppComponent', () => {
   });
 
   it('should change locale', () => {
-
     httpTestingController.expectOne(`${BASE_PATH}/pet/findByStatus?status=available`);
 
     const translateService: TranslateService = TestBed.inject(TranslateService);

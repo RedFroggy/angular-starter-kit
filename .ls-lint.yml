@@ -34,4 +34,4 @@ ignore:
   - public
   - swagger
   - cdk.out
-  - src/app/api
+  - src/app/shared/api

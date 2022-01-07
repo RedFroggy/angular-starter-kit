@@ -5,9 +5,11 @@ const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 const utils = require('./utils.js');
 
 const plugins = [
-  new CopyWebpackPlugin([ // Copy assets to the dist folder
-    {from: 'src/favicon.ico', to: 'favicon.ico'},
-  ]),
+  new CopyWebpackPlugin({
+    patterns: [ // Copy assets to the dist folder
+      {from : 'src/favicon.ico', to: 'favicon.ico'},
+    ],
+  }),
   new MergeJsonWebpackPlugin({ // Find and merge json files for each language
     output: {
       groupBy: [
@@ -32,11 +34,15 @@ module.exports = {
     rules: [
       {
         test: /manifest.webapp$/, // Load manifest webapp for chrome
-        loader: 'file-loader?name=manifest.webapp'
+        use: {
+          loader: 'file-loader?name=manifest.webapp'
+        }
       },
       {
         test: /browserconfig.xml/,
-        loader: 'file-loader?name=browserconfig.xml'
+        use: {
+          loader: 'file-loader?name=browserconfig.xml'
+        }
       }
     ]
   },

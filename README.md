@@ -17,10 +17,15 @@
   <a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg"/></a>
 </div>
 
+### Prerequisites
+
+- Install NodeJS
+- Install jdk (openjdk 11)
+
 ## Getting started
 
 - `npm install` to get node dependencies
-- `npm run serve` to run locally
+- `npm run start` to run locally
 - `npm run build` to build the application
 
 ## Tests
@@ -33,8 +38,8 @@
 
 ### End to End tests
 
-- `ng e2e:open` to execute the end-to-end tests in gui mode.
-- `ng e2e:ci` to execute the end-to-end tests in headless mode (for CI env).
+- `npm run e2e:open` to execute the end-to-end tests in gui mode.
+- `npm run e2e:ci` to execute the end-to-end tests in headless mode (for CI env).
 
 ## Code quality
 
@@ -51,8 +56,8 @@ The aws architecture is created via cloudformation and relies on [aws cdk script
 
 ### Aws stack
 
-- `ǹpm run aws-synth` to check that the `cloudformation` stack is valid.
-- `ǹpm run aws-deploy`. Will create, deploy and run aws `cloudformation` scripts written in the [deploy folder](deploy).
+- `npm run aws-synth` Will check that the `cloudformation` stack is valid.
+- `npm run aws-deploy`. Will create, deploy and run aws `cloudformation` scripts written in the [deploy folder](deploy).
 
 ## CI/CD workflow
 
@@ -81,7 +86,7 @@ The aws architecture is created via cloudformation and relies on [aws cdk script
 
 ## Generate swagger definition files
 
-`npm run swagger` : Wil generate the swagger files based on the [swagger-config.json](swagger-config.json) file.
+`npm run swagger` : Will generate the swagger files based on the [swagger-config.json](swagger-config.json) file.
 
 ## Perform a webpack bundle analysis
 

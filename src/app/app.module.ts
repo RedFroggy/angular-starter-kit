@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppConfigModule } from './app-config.module';
 import { FormsModule } from '@angular/forms';
-import { ApiModule } from './api';
+import { ApiModule } from 'app/shared/api';
 
 @NgModule({
   declarations: [AppComponent],
