@@ -1,0 +1,12 @@
+<div>
+  <button type="button" class="btn btn-primary btn-sm" (click)="loadPets()">Load pets</button>
+</div>
+<div>
+  <table>
+    <tr *ngFor="let pet of pets$ | async">
+      <td>{{ pet.id }}</td>
+      <td>{{ pet.name }}</td>
+      <td>{{ pet.category.name }}</td>
+    </tr>
+  </table>
+</div>

@@ -1,10 +1,11 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { ModuleWithProviders } from '@angular/compiler/src/core';
 import { SharedLibsModule } from './shared-libs.module';
+import { ApiModule } from 'app/shared/api';
 
 @NgModule({
-  imports: [SharedLibsModule],
-  exports: [SharedLibsModule],
+  imports: [SharedLibsModule, ApiModule],
+  exports: [SharedLibsModule, ApiModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 /**
