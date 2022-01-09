@@ -54,3 +54,5 @@ Thumbs.db
 /deploy/*.js
 cdk.out/
 .jest-cache/
+/src/stories
+storybook-static

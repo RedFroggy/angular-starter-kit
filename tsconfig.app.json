@@ -1,8 +1,12 @@
 {
   "extends": "./tsconfig.json",
-  "files": ["src/main.ts", "src/polyfills.ts"],
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
+  ],
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "src/**/*.stories.ts"
   ],
   "exclude": [
     "src/app/api/**/*.ts",
