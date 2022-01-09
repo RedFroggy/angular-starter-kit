@@ -1,5 +1,4 @@
 import { TagModel } from './tag.model';
-import { Type } from 'class-transformer';
 import { Category, Pet } from 'app/shared/api';
 
 export class PetModel implements Pet {
@@ -8,7 +7,6 @@ export class PetModel implements Pet {
   category?: Category;
   photoUrls: Array<string>;
   status?: Pet.StatusEnum;
-  @Type(() => TagModel)
   tags: Array<TagModel>;
 
   constructor(name: string, photoUrls: Array<string>, tags: Array<TagModel>) {

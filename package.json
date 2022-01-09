@@ -40,7 +40,6 @@
     "@ng-bootstrap/ng-bootstrap": "11.0.0",
     "@ngx-translate/core": "14.0.0",
     "@ngx-translate/http-loader": "7.0.0",
-    "class-transformer": "0.5.1",
     "lodash": "4.17.21",
     "messageformat": "2.3.0",
     "reflect-metadata": "0.1.13",
