@@ -2,7 +2,7 @@ import { TagModel } from './tag.model';
 import { Category, Pet } from 'app/shared/api';
 
 export class PetModel implements Pet {
-  id?: number;
+  id: number;
   name: string;
   category?: Category;
   photoUrls: Array<string>;

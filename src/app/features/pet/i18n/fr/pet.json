@@ -1,0 +1,18 @@
+{
+  "pet": {
+    "components": {
+      "list": {
+        "title": {},
+        "labels": {
+          "id": "Id",
+          "name": "Nom",
+          "category": "Catégorie"
+        },
+        "placeholders": {},
+        "buttons": {},
+        "messages": {},
+        "field-errors": {}
+      }
+    }
+  }
+}

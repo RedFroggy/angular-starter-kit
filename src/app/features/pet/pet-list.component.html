@@ -1,0 +1,27 @@
+<form>
+  <div>
+    <select class="form-select-sm" name="status" [(ngModel)]="status" (change)="selectStatus()">
+      <option value="pending">Pending</option>
+      <option value="available">Available</option>
+      <option value="sold">Sold</option>
+    </select>
+  </div>
+</form>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">{{ 'pet.components.list.labels.id' | translate }}</th>
+      <th scope="col">{{ 'pet.components.list.labels.name' | translate }}</th>
+      <th scope="col">{{ 'pet.components.list.labels.category' | translate }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pet of pets">
+      <td>
+        <a href="#" [routerLink]="[pet.id]">{{ pet.id }}</a>
+      </td>
+      <td>{{ pet.name }}</td>
+      <td>{{ pet.category?.name }}</td>
+    </tr>
+  </tbody>
+</table>

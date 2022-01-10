@@ -1,22 +1,22 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
-<select class="form-control" name="locale" id="locale" (change)="changeLocale()" [(ngModel)]="locale">
-  <option value="fr">FR</option>
-  <option value="en">EN</option>
-</select>
+<div class="container">
+  <div class="d-flex justify-content-end" *ngIf="authenticated">
+    <select class="form-select-sm" name="locale" id="locale" (change)="changeLocale()" [(ngModel)]="locale">
+      <option value="fr">FR</option>
+      <option value="en">EN</option>
+    </select>
+    <div class="ml-2">{{ account?.firstName }} {{ account?.lastName }}</div>
+    <button type="button" class="btn btn-primary btn-sm pl-2" (click)="logout()">Logout</button>
+  </div>
 
-<div style="text-align:center">
-  <h1 translate="app.title" id="appTitle"></h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+  <div class="text-center">
+    <h1 translate="app.title" id="appTitle"></h1>
+    <img
+      width="300"
+      alt="Angular Logo"
+      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+    />
+  </div>
+  <router-outlet></router-outlet>
 </div>
-
-<div>
-  <h2 translate="app.pet-title"></h2>
-  <select id="petList">
-    <option *ngFor="let pet of pets">
-      <span>{{pet.id}} - {{pet.name}} ({{pet.category?.name}})</span>
-    </option>
-  </select>
-</div>
-
-<router-outlet></router-outlet>

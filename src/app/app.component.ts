@@ -1,22 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from '../environments/environment';
 import { registerLocaleData } from '@angular/common';
 import localeEn from '@angular/common/locales/en';
 import { PetModel } from './features/pet/models/pet.model';
-import { PetService } from 'app/shared/api';
+import { Router } from '@angular/router';
+import { AccountModel } from 'app/features/login/models/account.model';
+import { AccountRepository } from 'app/features/login/repository/account.repository';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
+  account: AccountModel;
+  authenticated: boolean;
   title = 'angular-starter-kit';
   locale: string;
   pets: PetModel[] = [];
 
-  constructor(private translateService: TranslateService, private petService: PetService) {
+  constructor(
+    private readonly translateService: TranslateService,
+    private readonly accountRepository: AccountRepository,
+    private readonly router: Router
+  ) {
     this.locale = environment.defaultLanguage;
     this.translateService.use(environment.defaultLanguage);
 
@@ -24,14 +32,17 @@ export class AppComponent implements OnInit {
     registerLocaleData(localeEn, 'en');
 
     translateService.setDefaultLang(environment.defaultLanguage);
-  }
 
-  ngOnInit() {
-    // Find pets and transform to PetModel
-    this.petService.findPetsByStatus('available').subscribe((pets: PetModel[]) => (this.pets = pets));
+    this.accountRepository.getAccount().subscribe((account) => (this.account = account));
+    this.accountRepository.hasAccount().subscribe((authenticated) => (this.authenticated = authenticated));
   }
 
   changeLocale() {
     this.translateService.use(this.locale);
+  }
+
+  logout() {
+    this.accountRepository.removeAccount();
+    this.router.navigate(['login']);
   }
 }
