@@ -7,6 +7,7 @@ import { PetModel } from './features/pet/models/pet.model';
 import { Router } from '@angular/router';
 import { AccountModel } from 'app/features/login/models/account.model';
 import { AccountRepository } from 'app/features/login/repository/account.repository';
+import { APP_VERSION } from 'app/app.constants';
 
 @Component({
   selector: 'app-root',
@@ -35,6 +36,10 @@ export class AppComponent {
 
     this.accountRepository.getAccount().subscribe((account) => (this.account = account));
     this.accountRepository.hasAccount().subscribe((authenticated) => (this.authenticated = authenticated));
+
+    if (!environment.production) {
+      (window as any).app = APP_VERSION;
+    }
   }
 
   changeLocale() {

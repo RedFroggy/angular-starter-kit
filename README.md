@@ -108,6 +108,10 @@ The aws architecture is created via cloudformation and relies on [aws cdk script
 - [lodash](https://lodash.com/)
 - [ngx-translate](https://github.com/ngx-translate/core) for i18n
 
+### Store management
+
+- [Elf](https://ngneat.github.io/elf)
+
 ### Tests
 
 - [Jest](https://jestjs.io/) for unit tests
