@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
     this.petService.findPetsByStatus('available').subscribe((pets: PetModel[]) => (this.pets = pets));
 
     if (!environment.production) {
-      (window as any).app = APP_VERSION;
+      window.app = APP_VERSION;
     }
   }
 

@@ -15,7 +15,7 @@ export abstract class AbstractControlValueAccessor<T> implements ControlValueAcc
   set value(value: T) {
     if (this.innerValue !== value) {
       this.innerValue = value;
-      this.changed.forEach((f) => f(value));
+      this.changed.forEach((f: (v: T) => object) => f(value));
     }
   }
 
