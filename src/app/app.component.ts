@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
     translateService.setDefaultLang(environment.defaultLanguage);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Find pets and transform to PetModel
     this.petService.findPetsByStatus('available').subscribe((pets: PetModel[]) => (this.pets = pets));
 
@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
     }
   }
 
-  changeLocale() {
+  changeLocale(): void {
     this.translateService.use(this.locale);
   }
 }

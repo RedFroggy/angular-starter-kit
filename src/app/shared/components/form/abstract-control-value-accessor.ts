@@ -19,17 +19,17 @@ export abstract class AbstractControlValueAccessor<T> implements ControlValueAcc
     }
   }
 
-  writeValue(value: T) {
+  writeValue(value: T): void {
     this.innerValue = value;
   }
 
-  registerOnChange(fn: (value: T) => void) {
+  registerOnChange(fn: (value: T) => void): void {
     if (this.changed) {
       this.changed.push(fn);
     }
   }
 
-  registerOnTouched(fn: () => void) {
+  registerOnTouched(fn: () => void): void {
     if (this.touched) {
       this.touched.push(fn);
     }

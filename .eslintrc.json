@@ -47,7 +47,6 @@
         }
       }
     ],
-    "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/member-ordering": [
       "error",
       {
@@ -85,5 +84,14 @@
     "object-shorthand": ["error", "always", { "avoidExplicitReturnArrows": true }],
     "radix": "error",
     "spaced-comment": ["warn", "always"]
-  }
+  },
+  "overrides": [
+    {
+      // enable the rule specifically for TypeScript files
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": ["error"]
+      }
+    }
+  ]
 }
