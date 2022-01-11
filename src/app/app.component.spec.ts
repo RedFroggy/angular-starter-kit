@@ -6,10 +6,10 @@ import { SharedLibsModule } from './shared/shared-libs.module';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { SharedModule } from './shared/shared.module';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { of } from 'rxjs';
 import { PetFixture } from '../test/fixtures/pet.fixture';
+import { CoreModule } from 'app/core/core.module';
 
 const BASE_PATH = 'https://petstore3.swagger.io/api/v3';
 
@@ -20,7 +20,7 @@ describe('AppComponent', () => {
 
   const createComponent = createComponentFactory({
     imports: [
-      SharedModule.forRoot(),
+      CoreModule.forRoot(),
       TranslateModule.forRoot(),
       SharedLibsModule,
       RouterTestingModule,

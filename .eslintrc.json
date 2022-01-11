@@ -9,7 +9,7 @@
     "prettier",
     "eslint-config-prettier"
   ],
-  "ignorePatterns": ["src/app/shared/api/**"],
+  "ignorePatterns": ["src/**/*.spec.ts", "src/app/shared/api/**"],
   "env": {
     "browser": true,
     "es6": true,
