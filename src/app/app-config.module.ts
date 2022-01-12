@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { CoreModule } from 'app/core/core.module';
 
 export function translatePartialLoader(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, 'i18n/', `.json?buildTimestamp=${process.env.BUILD_TIMESTAMP}`);
@@ -10,7 +9,6 @@ export function translatePartialLoader(http: HttpClient): TranslateHttpLoader {
 
 @NgModule({
   imports: [
-    CoreModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
