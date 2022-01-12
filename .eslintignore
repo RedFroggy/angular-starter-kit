@@ -3,4 +3,5 @@ webpack/
 dist/
 src/app/shared/api
 src/test
+src/**/*.spec.ts
 src/**/*.html

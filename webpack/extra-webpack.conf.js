@@ -4,6 +4,9 @@ const MergeJsonWebpackPlugin = require("merge-jsons-webpack-plugin");
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 const utils = require('./utils.js');
 
+const { GitRevisionPlugin } = require('git-revision-webpack-plugin');
+const gitRevisionPlugin = new GitRevisionPlugin({branch: true});
+
 const plugins = [
   new CopyWebpackPlugin({
     patterns: [ // Copy assets to the dist folder
@@ -21,7 +24,9 @@ const plugins = [
   new webpack.DefinePlugin({
     'process.env': {
       BUILD_TIMESTAMP: `'${new Date().getTime()}'`,
-      VERSION: `'${utils.parseVersion()}'`
+      VERSION: `'${utils.parseVersion()}'`,
+      GIT_COMMITHASH: JSON.stringify(gitRevisionPlugin.commithash()),
+      GIT_BRANCH: JSON.stringify(gitRevisionPlugin.branch()),
     }
   }),
   new MomentLocalesPlugin({

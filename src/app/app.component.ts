@@ -5,6 +5,7 @@ import { registerLocaleData } from '@angular/common';
 import localeEn from '@angular/common/locales/en';
 import { PetModel } from './features/pet/models/pet.model';
 import { PetService } from 'app/shared/api';
+import { APP_VERSION } from 'app/app.constants';
 
 @Component({
   selector: 'app-root',
@@ -26,12 +27,16 @@ export class AppComponent implements OnInit {
     translateService.setDefaultLang(environment.defaultLanguage);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Find pets and transform to PetModel
     this.petService.findPetsByStatus('available').subscribe((pets: PetModel[]) => (this.pets = pets));
+
+    if (!environment.production) {
+      window.app = APP_VERSION;
+    }
   }
 
-  changeLocale() {
+  changeLocale(): void {
     this.translateService.use(this.locale);
   }
 }
