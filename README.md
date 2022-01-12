@@ -100,7 +100,7 @@ The aws architecture is created via cloudformation and relies on [aws cdk script
 | DOMAIN_DEV       | `AWS CDK` domain. Application domain used in cldoufront, route53, etc    |
 | SUBDOMAIN_DEV    | `AWS CDK` subdomain. Application domain used in cldoufront, route53, etc |
 
-### Framework
+### Framework / Librairies
 
 - [Angular](https://angular.io/)
 - [Angular ng bootstrap](https://ng-bootstrap.github.io) for UI
