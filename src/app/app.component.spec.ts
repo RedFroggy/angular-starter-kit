@@ -9,7 +9,6 @@ import { TestBed } from '@angular/core/testing';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { of } from 'rxjs';
 import { PetFixture } from '../test/fixtures/pet.fixture';
-import { CoreModule } from 'app/core/core.module';
 
 const BASE_PATH = 'https://petstore3.swagger.io/api/v3';
 
