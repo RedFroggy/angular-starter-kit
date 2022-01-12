@@ -119,13 +119,12 @@ The aws architecture is created via cloudformation and relies on [aws cdk script
 
 - [es-lint](https://eslint.org)
 - [ls-lint](https://github.com/loeffel-io/ls-lint) for checking file name conventions
-- [angular-tslint-rules](https://www.npmjs.com/package/angular-tslint-rules) for Angular [best practices](https://angular.io/guide/styleguide) linter
+- [angular-eslint/eslint-plugin](https://www.npmjs.com/package/@angular-eslint/eslint-plugin) for Angular [best practices](https://angular.io/guide/styleguide) linter
 - [prettier](https://prettier.io/) as a code formatter
 
 ### Rest API tools
 
-- [ng-swagger-gen](https://github.com/cyclosproject/ng-swagger-gen#readme) to generate Angular models and services based on swagger rest api doc.
-- [class-transformer](https://github.com/typestack/class-transformer) to use deep class objet instances for rest api data instead of plain objects
+- [openapi-generator](https://openapi-generator.tech) to generate Angular models and services based on swagger rest api doc.
 
 ### Release management
 
