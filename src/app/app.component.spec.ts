@@ -19,13 +19,7 @@ describe('AppComponent', () => {
   let httpTestingController: HttpTestingController;
 
   const createComponent = createComponentFactory({
-    imports: [
-      CoreModule.forRoot(),
-      TranslateModule.forRoot(),
-      SharedLibsModule,
-      RouterTestingModule,
-      HttpClientTestingModule,
-    ],
+    imports: [TranslateModule.forRoot(), SharedLibsModule, RouterTestingModule, HttpClientTestingModule],
     component: AppComponent,
   });
 
