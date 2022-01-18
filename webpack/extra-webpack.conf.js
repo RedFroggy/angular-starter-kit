@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MergeJsonWebpackPlugin = require("merge-jsons-webpack-plugin");
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 const utils = require('./utils.js');
@@ -8,11 +7,6 @@ const { GitRevisionPlugin } = require('git-revision-webpack-plugin');
 const gitRevisionPlugin = new GitRevisionPlugin({branch: true});
 
 const plugins = [
-  new CopyWebpackPlugin({
-    patterns: [ // Copy assets to the dist folder
-      {from : 'src/favicon.ico', to: 'favicon.ico'},
-    ],
-  }),
   new MergeJsonWebpackPlugin({ // Find and merge json files for each language
     output: {
       groupBy: [

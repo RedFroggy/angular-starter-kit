@@ -28,7 +28,8 @@
             "aot": false,
             "polyfills": "src/polyfills.ts",
             "assets": [
-              "src/assets"
+              "src/assets",
+              "src/favicon.ico"
             ],
             "styles": ["src/assets/scss/styles.scss"],
             "scripts": []
