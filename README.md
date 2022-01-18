@@ -1,7 +1,7 @@
 # Angular starter kit
 
 <div align="center">
-  <a name="logo" href="https://www.redfroggy.fr"><img src=".gitlab/logo.png" alt="RedFroggy"></a>
+  <a name="logo" href="https://www.redfroggy.fr"><img src=".github/logo.png" alt="RedFroggy"></a>
   <h4 align="center">A RedFroggy project</h4>
 </div>
 <br/>
