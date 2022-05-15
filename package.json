@@ -60,7 +60,7 @@
     "@commitlint/config-conventional": "16.0.0",
     "@ls-lint/ls-lint": "1.10.0",
     "@ngneat/spectator": "10.0.0",
-    "@openapitools/openapi-generator-cli": "2.4.24",
+    "@openapitools/openapi-generator-cli": "2.5.1",
     "@semantic-release/changelog": "6.0.1",
     "@semantic-release/github": "8.0.2",
     "@types/jasmine": "3.10.3",
